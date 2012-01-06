@@ -4,7 +4,7 @@
  * @copyright Netvlies Internetdiensten
  */
 
-namespace Netvlies\FormBundle\Form\Type;
+namespace Netvlies\Bundle\FormBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
