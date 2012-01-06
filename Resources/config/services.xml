@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="netvlies.form.slider" class="Netvlies\FormBundle\Form\Type\SliderType">
+            <tag name="form.type" alias="nvs_slider" />
+        </service>
+        <service id="netvlies.form.range" class="Netvlies\FormBundle\Form\Type\RangeType">
+            <tag name="form.type" alias="nvs_range" />
+        </service>
+        <service id="netvlies.form.color" class="Netvlies\FormBundle\Form\Type\ColorType">
+            <tag name="form.type" alias="nvs_color" />
+        </service>
+    </services>
+</container>
