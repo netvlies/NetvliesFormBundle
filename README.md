@@ -21,7 +21,7 @@ Plaats het volgende in je `deps` bestand en draai `bin/vendors install`:
     // app/autoload.php
     $loader->registerNamespaces(array(
         // ...
-        'Netvlies'         => __DIR__.'/../vendor/bundles',
+        'Netvlies\\Bundle'         => __DIR__.'/../vendor/bundles',
         // ...
     ));
 
