@@ -6,14 +6,18 @@ en opmaak.
 
 Installatie
 -----------
+
+### 1) Download de bundle
+
 Plaats het volgende in je `deps` bestand en draai `bin/vendors install`:
+
 ```
     [FormBundle]
         git=git@bitbucket.org:netvlies/sf2bundle-form.git
         target=/bundles/Netvlies/Bundle/FormBundle
 ```
 
-Vervolgens registreer je de namespaces:
+### 2) Registreer de namespaces
 
 ``` php
 <?php
@@ -24,7 +28,7 @@ $loader->registerNamespaces(array(
     // ...
 ));
 ```
-Activeer de bundle:
+### 3) Activeer de bundle
 
 ``` php
 <?php
@@ -39,4 +43,3 @@ public function registerBundles()
     // ...
 )
 ```
-
