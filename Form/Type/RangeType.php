@@ -14,8 +14,22 @@ class RangeType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function buildViewBottomUp(FormView $view, FormInterface $form)
+    {
+        $view->set('min', $form->getAttribute('min'));
+        $view->set('max', $form->getAttribute('max'));
+        $view->set('stepping', $form->getAttribute('stepping'));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilder $builder, array $options)
     {
+        $builder->setAttribute('min', $options['min']);
+        $builder->setAttribute('max', $options['max']);
+        $builder->setAttribute('stepping', $options['stepping']);
+
         $builder
             ->add('start', 'hidden')
             ->add('end', 'hidden')
