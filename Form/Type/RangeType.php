@@ -66,7 +66,7 @@ class RangeType extends AbstractType
      */
     public function getName()
     {
-        return 'nvs_range';
+        return 'netvlies_form_range';
     }
 
     /**
