@@ -59,7 +59,7 @@ class SliderType extends AbstractType
      */
     public function getName()
     {
-        return 'nvs_slider';
+        return 'netvlies_form_slider';
     }
 
     /**

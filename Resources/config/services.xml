@@ -4,13 +4,13 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="netvlies.form.slider" class="Netvlies\Bundle\FormBundle\Form\Type\SliderType">
-            <tag name="form.type" alias="nvs_slider" />
+            <tag name="form.type" alias="netvlies_form_slider" />
         </service>
         <service id="netvlies.form.range" class="Netvlies\Bundle\FormBundle\Form\Type\RangeType">
-            <tag name="form.type" alias="nvs_range" />
+            <tag name="form.type" alias="netvlies_form_range" />
         </service>
         <service id="netvlies.form.color" class="Netvlies\Bundle\FormBundle\Form\Type\ColorType">
-            <tag name="form.type" alias="nvs_color" />
+            <tag name="form.type" alias="netvlies_form_color" />
         </service>
     </services>
 </container>
