@@ -32,10 +32,33 @@ class RangeType extends AbstractType
         $builder->setAttribute('max', $options['max']);
         $builder->setAttribute('stepping', $options['stepping']);
 
+        $type = $options['show_controls'] == false ? 'hidden' : 'text';
+
         $builder
-            ->add('start', 'hidden')
-            ->add('end', 'hidden')
+            ->add('start', $type, array(
+                'attr' => array(
+                        'data-type' => 'nvs-range-from',
+                        'data-init' => $options['init_from']
+                    )
+            ))
+            ->add('end', $type, array(
+                'attr' => array(
+                        'data-type' => 'nvs-range-to',
+                        'data-init' => $options['init_to']
+                    )
+            ))
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDefaultOptions(array $options)
+    {
+        return array(
+            'init_from' => $options['min'],
+            'init_to'   => $options['max']
+        );
     }
 
     /**

@@ -14,18 +14,6 @@ class ColorType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getDefaultOptions(array $options)
-    {
-        return array(
-            'attr'  => array(
-                'class' => 'color'
-            )
-        );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'nvs_color';
