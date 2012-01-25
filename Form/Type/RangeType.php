@@ -51,6 +51,6 @@ class RangeType extends AbstractType
      */
     public function getParent(array $options)
     {
-        return 'nvs_slider';
+        return 'netvlies_form_slider';
     }
 }

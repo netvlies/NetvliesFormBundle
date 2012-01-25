@@ -28,7 +28,7 @@ class ColorType extends AbstractType
      */
     public function getName()
     {
-        return 'nvs_color';
+        return 'netvlies_form_color';
     }
 
     /**
