@@ -1,0 +1,20 @@
+{
+    "name": "netvlies/sf2bundle-form",
+    "type": "symfony-bundle",
+    "description": "Symfony NetvliesFormBundle",
+    "keywords": ["soms", "form", "netvlies"],
+    "authors": [
+            {
+                "name": "Netvlies",
+                "email": "programmeurs@netvlies.nl",
+                "homepage": "http://www.netvlies.nl"
+            }
+        ],
+    "require": {
+        "phpexcel/phpexcel": "1.7.7"
+    },
+    "autoload":     {
+        "psr-0": { "Netvlies\\Bundle\\FormBundle": "" }
+    },
+    "target-dir": "Netvlies/Bundle/FormBundle"
+}
