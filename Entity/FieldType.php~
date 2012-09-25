@@ -1,0 +1,64 @@
+<?php
+
+namespace Endroid\FormBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="field_type")
+ */
+class FieldType
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $label;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $tag;
+
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+    }
+
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setLabel($label)
+    {
+        $this->label = $label;
+    }
+
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
+    }
+}

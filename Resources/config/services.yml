@@ -1,0 +1,40 @@
+services:
+
+    netvlies_form.field:
+        class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
+        arguments:
+          - null
+          - Netvlies\Bundle\FormBundle\Entity\Field
+          - NetvliesFormBundle:FieldAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields }
+
+    netvlies_form.field_type:
+        class: Netvlies\Bundle\FormBundle\Admin\FieldTypeAdmin
+        arguments:
+          - null
+          - Netvlies\Bundle\FormBundle\Entity\FieldType
+          - NetvliesFormBundle:FieldTypeAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types }
+
+    netvlies_form.form:
+        class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
+        arguments:
+          - null
+          - Netvlies\Bundle\FormBundle\Entity\Form
+          - NetvliesFormBundle:FormAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Forms }
+
+    netvlies_form.helper:
+        class: Netvlies\Bundle\FormBundle\Helper\FormHelper
+        calls:
+          - [ setContainer, [@service_container] ]
+
+    netvlies_form.twig.extension:
+        class: Netvlies\Bundle\FormBundle\Twig\Extension\FormExtension
+        calls:
+          - [ setContainer, [@service_container] ]
+        tags:
+          - { name: twig.extension }
