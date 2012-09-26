@@ -1,1 +1,9 @@
-<a href="{{ path("form_export", { "id": object.id }) }}">Results ({{ object.results|length }})</a>
+{%  if object.results|length > 0 %}
+
+    <a href="{{ path("form_export", { "id": object.id }) }}">Results ({{ object.results|length }})</a>
+
+{% else %}
+
+    No results
+
+{% endif %}
