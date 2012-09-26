@@ -27,7 +27,11 @@ class Form
      */
     protected $label;
 
-
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $successUrl;
 
     /**
      * @ORM\OneToMany(targetEntity="Field", mappedBy="form", cascade={"persist"})
@@ -346,5 +350,28 @@ class Form
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * Set successUrl
+     *
+     * @param string $successUrl
+     * @return Form
+     */
+    public function setSuccessUrl($successUrl)
+    {
+        $this->successUrl = $successUrl;
+    
+        return $this;
+    }
+
+    /**
+     * Get successUrl
+     *
+     * @return string 
+     */
+    public function getSuccessUrl()
+    {
+        return $this->successUrl;
     }
 }

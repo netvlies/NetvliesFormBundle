@@ -16,6 +16,7 @@ class FormAdmin extends Admin
             ->add('label')
             ->add('storeResult')
             ->add('sendMail')
+            ->add('successUrl', null, array('required' => false))
             ->add('contactName', null, array('required' => false))
             ->add('contactEmail', null, array('required' => false))
             ->add('mailSubject', null, array('required' => false))

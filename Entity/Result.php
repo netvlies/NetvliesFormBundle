@@ -130,4 +130,27 @@ class Result
     {
         return $this->datetimeAdded;
     }
+
+    /**
+     * Add entries
+     *
+     * @param Netvlies\Bundle\FormBundle\Entity\Entry $entries
+     * @return Result
+     */
+    public function addEntrie(\Netvlies\Bundle\FormBundle\Entity\Entry $entries)
+    {
+        $this->entries[] = $entries;
+    
+        return $this;
+    }
+
+    /**
+     * Remove entries
+     *
+     * @param Netvlies\Bundle\FormBundle\Entity\Entry $entries
+     */
+    public function removeEntrie(\Netvlies\Bundle\FormBundle\Entity\Entry $entries)
+    {
+        $this->entries->removeElement($entries);
+    }
 }

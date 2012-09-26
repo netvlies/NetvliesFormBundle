@@ -1,13 +1,13 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Helper;
+namespace Netvlies\Bundle\FormBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
 use Netvlies\Bundle\FormBundle\Entity\Entry;
 use Netvlies\Bundle\FormBundle\Entity\Result;
 
-class FormHelper extends ContainerAware
+class FormService extends ContainerAware
 {
     /**
      * @var array
@@ -79,10 +79,10 @@ class FormHelper extends ContainerAware
                     $this->sendMail($form, $result);
                 }
 
-                $router = $this->container->get('router');
-                $redirectUrl = $router->generateUrl($request->get('_route'), $request->get('_route_params'));
-
-                return $router->redirect($redirectUrl);
+                if ($form->getSuccessUrl()) {
+                    $router = $this->container->get('router');
+                    return $router->redirect($form->getSuccessUrl());
+                }
             }
         }
     }
