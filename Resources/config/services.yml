@@ -1,6 +1,6 @@
 services:
 
-    netvlies_form.field:
+    netvlies.form.field:
         class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
         arguments:
           - null
@@ -9,16 +9,16 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields }
 
-    netvlies_form.field_type:
+    netvlies.form.field_type:
         class: Netvlies\Bundle\FormBundle\Admin\FieldTypeAdmin
         arguments:
           - null
           - Netvlies\Bundle\FormBundle\Entity\FieldType
           - NetvliesFormBundle:FieldTypeAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types }
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types, show_in_dashboard: false }
 
-    netvlies_form.form:
+    netvlies.form.form:
         class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
         arguments:
           - null
@@ -27,12 +27,12 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Forms }
 
-    netvlies_form:
+    netvlies.form:
         class: Netvlies\Bundle\FormBundle\Service\FormService
         calls:
           - [ setContainer, [@service_container] ]
 
-    netvlies_form.twig.extension:
+    netvlies.form.twig.extension:
         class: Netvlies\Bundle\FormBundle\Twig\Extension\FormExtension
         calls:
           - [ setContainer, [@service_container] ]

@@ -23,7 +23,7 @@ Twig extension.
 This requires the definition of a repository in your composer.json as the bundle
 is not publicly available via Packagist.
 
-```js
+``` js
 {
     "require": {
         "netvlies/sf2bundle-form": "dev-master"
@@ -61,6 +61,17 @@ public function registerBundles()
 }
 ```
 
+## Routing
+
+Add the following section to your routing to be able to reach the controller.
+
+``` yml
+NetvliesFormBundle:
+    resource:   "@NetvliesFormBundle/Controller/"
+    type:       annotation
+    prefix:     /form
+```
+
 ## Usage
 
 After installation and configuration, the service can be directly referenced from within your controllers.
@@ -69,7 +80,7 @@ After installation and configuration, the service can be directly referenced fro
 <?php
 public function indexAction()
 {
-    $form = $this->get('netvlies_form')->get($formId);
+    $form = $this->get('netvlies.form')->get($formId);
 
     ...
 }

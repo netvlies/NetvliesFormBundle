@@ -38,8 +38,9 @@ class FormService extends ContainerAware
 
         foreach ($form->getFields() as $field) {
             $formBuilder->add('field_'.$field->getId(), $field->getType()->getTag(), array('label' => $field->getLabel()));
-
         }
+
+        $formBuilder->add('captcha', 'captcha');
 
         $form->setSf2Form($formBuilder->getForm());
 

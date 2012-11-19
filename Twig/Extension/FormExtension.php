@@ -39,7 +39,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
      */
     public function showForm($id)
     {
-        $form = $this->container->get('netvlies_form')->get($id);
+        $form = $this->container->get('netvlies.form')->get($id);
 
         $sf2Form = $form->getSf2Form();
 
