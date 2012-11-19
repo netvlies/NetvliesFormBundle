@@ -46,6 +46,11 @@ class Form
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
+    protected $addCaptcha = true;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
     protected $storeResult = true;
 
     /**
@@ -135,6 +140,18 @@ class Form
     public function __toString()
     {
         return $this->label;
+    }
+
+    public function setAddCaptcha($addCaptcha)
+    {
+        $this->addCaptcha = $addCaptcha;
+
+        return $this;
+    }
+
+    public function getAddCaptcha()
+    {
+        return $this->addCaptcha;
     }
 
     /**

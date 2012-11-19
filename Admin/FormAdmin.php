@@ -14,6 +14,7 @@ class FormAdmin extends Admin
     {
         $formMapper
             ->add('label')
+            ->add('addCaptcha')
             ->add('storeResult')
             ->add('sendMail')
             ->add('successUrl', null, array('required' => false))

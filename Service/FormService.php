@@ -2,10 +2,11 @@
 
 namespace Netvlies\Bundle\FormBundle\Service;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Request;
 use Netvlies\Bundle\FormBundle\Entity\Entry;
 use Netvlies\Bundle\FormBundle\Entity\Result;
+use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class FormService extends ContainerAware
 {
@@ -40,7 +41,9 @@ class FormService extends ContainerAware
             $formBuilder->add('field_'.$field->getId(), $field->getType()->getTag(), array('label' => $field->getLabel()));
         }
 
-        $formBuilder->add('captcha', 'captcha');
+        if ($form->getAddCaptcha()) {
+            $formBuilder->add('captcha', 'captcha');
+        }
 
         $form->setSf2Form($formBuilder->getForm());
 
@@ -81,8 +84,8 @@ class FormService extends ContainerAware
                 }
 
                 if ($form->getSuccessUrl()) {
-                    $router = $this->container->get('router');
-                    return $router->redirect($form->getSuccessUrl());
+                    $redirectResponse = new RedirectResponse($form->getSuccessUrl());
+                    $redirectResponse->send();
                 }
             }
         }
