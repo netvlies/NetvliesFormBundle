@@ -1,0 +1,4 @@
+NetvliesFormBundle:
+    resource: "@NetvliesFormBundle/Controller/"
+    type: annotation
+    prefix: /form

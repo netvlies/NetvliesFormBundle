@@ -1,5 +1,7 @@
-<form novalidate="novalidate" action="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+{% extends 'EndroidFormBundle::layout.html.twig' %}
 
-    <input type="submit" />
-</form>
+{% block content %}
+
+    {{ show_form(form.id) }}
+
+{% endblock content %}

@@ -36,7 +36,7 @@ class FormAdmin extends Admin
             ->addIdentifier('label')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'export' => array('template' => 'NetvliesFormBundle:Form:export_action.html.twig'),
+                    'export' => array('template' => 'NetvliesFormBundle:Sonata:CRUD/list__action_export.html.twig'),
                 )
             ))
         ;

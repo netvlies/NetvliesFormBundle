@@ -14,6 +14,17 @@ use PHPExcel_Writer_Excel2007;
 class FormController extends Controller
 {
     /**
+     * @Route("/show/{id}", name="form_show")
+     * @Template()
+     */
+    public function showAction(Form $form)
+    {
+        return array(
+            'form' => $form
+        );
+    }
+
+    /**
      * @Route("/export/{id}", name="form_export")
      * @Template()
      */

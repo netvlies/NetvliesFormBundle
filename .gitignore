@@ -1,0 +1,7 @@
+Tests/Controller/app/cache/
+vendor/
+composer.lock
+composer.phar
+phpunit.xml
+
+.idea/

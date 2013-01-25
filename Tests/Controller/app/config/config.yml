@@ -1,0 +1,20 @@
+framework:
+    router: { resource: "%kernel.root_dir%/config/routing.yml" }
+    secret: secret
+    test: ~
+    validation: { enabled: true, enable_annotations: true }
+
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     localhost
+        port:     ~
+        dbname:   endroid_form_bundle
+        user:     root
+        password: ''
+        charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
