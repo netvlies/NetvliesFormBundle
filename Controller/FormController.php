@@ -17,10 +17,10 @@ class FormController extends Controller
      * @Route("/show/{id}", name="form_show")
      * @Template()
      */
-    public function showAction(Form $form)
+    public function showAction($id)
     {
         return array(
-            'form' => $form
+            'id' => $id,
         );
     }
 

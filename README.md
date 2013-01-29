@@ -57,6 +57,7 @@ public function registerBundles()
     $bundles = array(
         // ...
         new Netvlies\Bundle\FormBundle\NetvliesFormBundle(),
+        new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
     );
 }
 ```

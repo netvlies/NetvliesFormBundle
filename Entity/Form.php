@@ -163,14 +163,14 @@ class Form
     public function setStoreResult($storeResult)
     {
         $this->storeResult = $storeResult;
-    
+
         return $this;
     }
 
     /**
      * Get storeResult
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getStoreResult()
     {
@@ -186,7 +186,7 @@ class Form
     public function setSendMail($sendMail)
     {
         $this->sendMail = $sendMail;
-    
+
         return $this;
     }
 
@@ -209,14 +209,14 @@ class Form
     public function setContactName($contactName)
     {
         $this->contactName = $contactName;
-    
+
         return $this;
     }
 
     /**
      * Get contactName
      *
-     * @return string 
+     * @return string
      */
     public function getContactName()
     {
@@ -232,14 +232,14 @@ class Form
     public function setContactEmail($contactEmail)
     {
         $this->contactEmail = $contactEmail;
-    
+
         return $this;
     }
 
     /**
      * Get contactEmail
      *
-     * @return string 
+     * @return string
      */
     public function getContactEmail()
     {
@@ -252,7 +252,7 @@ class Form
     {
         $this->fields = new ArrayCollection();
     }
-    
+
     /**
      * Add fields
      *
@@ -264,7 +264,7 @@ class Form
         $field->setForm($this);
 
         $this->fields[] = $field;
-    
+
         return $this;
     }
 
@@ -297,14 +297,14 @@ class Form
     public function setMailSubject($mailSubject)
     {
         $this->mailSubject = $mailSubject;
-    
+
         return $this;
     }
 
     /**
      * Get mailSubject
      *
-     * @return string 
+     * @return string
      */
     public function getMailSubject()
     {
@@ -320,14 +320,14 @@ class Form
     public function setMailContent($mailContent)
     {
         $this->mailContent = $mailContent;
-    
+
         return $this;
     }
 
     /**
      * Get mailContent
      *
-     * @return string 
+     * @return string
      */
     public function getMailContent()
     {
@@ -345,7 +345,7 @@ class Form
         $result->setForm($this);
 
         $this->results[] = $result;
-    
+
         return $this;
     }
 
@@ -378,14 +378,14 @@ class Form
     public function setSuccessUrl($successUrl)
     {
         $this->successUrl = $successUrl;
-    
+
         return $this;
     }
 
     /**
      * Get successUrl
      *
-     * @return string 
+     * @return string
      */
     public function getSuccessUrl()
     {

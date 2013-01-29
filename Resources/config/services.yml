@@ -1,6 +1,6 @@
 services:
 
-    netvlies.form.field:
+    netvlies.form.field.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
         arguments:
           - null
@@ -9,7 +9,7 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields }
 
-    netvlies.form.field_type:
+    netvlies.form.field_type.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FieldTypeAdmin
         arguments:
           - null
@@ -18,7 +18,7 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types, show_in_dashboard: false }
 
-    netvlies.form.form:
+    netvlies.form.form.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
         arguments:
           - null
