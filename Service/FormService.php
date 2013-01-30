@@ -2,10 +2,9 @@
 
 namespace Netvlies\Bundle\FormBundle\Service;
 
-use Netvlies\Bundle\FormBundle\Entity\Entry;
-use Netvlies\Bundle\FormBundle\Entity\Result;
+use Netvlies\Bundle\FormBundle\Event\FormEvent;
+
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class FormService extends ContainerAware
@@ -20,132 +19,32 @@ class FormService extends ContainerAware
      * the first time,
      *
      * @param $id
-     * @return null
+     * @return mixed
      */
     public function get($id)
     {
-        if (isset($forms[$id])) {
-            return $this->forms[$id];
-        }
+        if (!isset($forms[$id])) {
 
-        $contentRepository = $this->container->get('doctrine')->getRepository('NetvliesFormBundle:Form');
-        $form = $contentRepository->findOneById($id);
+            $contentRepository = $this->container->get('doctrine')->getRepository('NetvliesFormBundle:Form');
+            $form = $contentRepository->findOneById($id);
 
-        if ($form === null) {
-            return null;
-        }
+            $formBuilder = $this->container->get('form.factory')->createBuilder();
 
-        $formBuilder = $this->container->get('form.factory')->createBuilder();
+            $formBuilder->add('form_id', 'hidden', array('data' => $id));
 
-        foreach ($form->getFields() as $field) {
-            $formBuilder->add('field_'.$field->getId(), $field->getType()->getTag(), array('label' => $field->getLabel()));
-        }
-
-        if ($form->getAddCaptcha()) {
-            $formBuilder->add('captcha', 'captcha');
-        }
-
-        $form->setSf2Form($formBuilder->getForm());
-
-        $forms[$id] = $form;
-
-        $this->handle($form);
-
-        return $form;
-    }
-
-    /**
-     * Checks if a post request was made. If so, it validates the form input
-     * and upon success stores the result and sends the mail, depending on
-     * the desired actions specified for the form.
-     *
-     * @param $form
-     */
-    public function handle($form)
-    {
-        $request = Request::createFromGlobals();
-
-        $sf2Form = $form->getSf2Form();
-
-        if ($request->getMethod() == 'POST') {
-
-            $sf2Form->bind($request);
-
-            if ($sf2Form->isValid()) {
-
-                $result = $this->createResult($form);
-
-                if ($form->getStoreResult()) {
-                    $this->storeResult($form, $result);
-                }
-
-                if ($form->getSendMail()) {
-                    $this->sendMail($form, $result);
-                }
-
-                if ($form->getSuccessUrl()) {
-                    $redirectResponse = new RedirectResponse($form->getSuccessUrl());
-                    $redirectResponse->send();
-                }
+            foreach ($form->getFields() as $field) {
+                $formBuilder->add('field_'.$field->getId(), $field->getType()->getTag(), array('label' => $field->getLabel()));
             }
-        }
-    }
 
-    /**
-     * Creates the result object from the user's input.
-     *
-     * @param $form
-     * @return Result
-     */
-    public function createResult($form)
-    {
-        $result = new Result();
-        $result->setDatetimeAdded(new \DateTime());
+            if ($form->getAddCaptcha()) {
+                $formBuilder->add('captcha', 'captcha');
+            }
 
-        $viewData = $form->getSf2Form()->getViewData();
+            $form->setSf2Form($formBuilder->getForm());
 
-        // Process entries
-        foreach ($form->getFields() as $field) {
-            $entry = new Entry();
-            $entry->setField($field);
-            $entry->setValue($viewData['field_'.$field->getId()]);
-            $result->addEntry($entry);
+            $this->forms[$id] = $form;
         }
 
-        return $result;
-    }
-
-    /**
-     * Stores the user input as a result object.
-     *
-     * @param $form
-     * @param $result
-     */
-    public function storeResult($form, $result)
-    {
-        $entityManager = $this->container->get('doctrine')->getEntityManager();
-        $form->addResult($result);
-        $entityManager->persist($form);
-        $entityManager->flush();
-    }
-
-    /**
-     * Sends a mail containing the form values to the contact e-mail address
-     * specified.
-     *
-     * @param $form
-     */
-    public function sendMail($form, $result)
-    {
-        $message = \Swift_Message::newInstance()
-            ->setSubject($form->getMailSubject())
-            ->setTo(array($form->getContactEmail() => $form->getContactName()))
-            ->setBody($this->container->get('templating')->render('NetvliesFormBundle:Mail:result.html.twig', array(
-                'content' => $form->getMailContent(),
-                'entries' => $result->getEntries(),
-            )), 'text/html')
-        ;
-        $this->container->get('mailer')->send($message);
-
+        return $this->forms[$id];
     }
 }

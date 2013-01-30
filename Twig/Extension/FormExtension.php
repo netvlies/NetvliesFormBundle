@@ -43,7 +43,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
 
         return $this->container->get('templating')->render('NetvliesFormBundle:Twig:show_form.html.twig', array(
             'id' => $form->getId(),
-            'form' => $form->getSf2Form()->createView(),
+            'form' => $form->getSf2Form()->createView()
         ));
     }
 

@@ -67,6 +67,8 @@ public function registerBundles()
 Add the following section to your routing to be able to reach the controller.
 
 ``` yml
+// app/config/routing.yml
+
 NetvliesFormBundle:
     resource:   "@NetvliesFormBundle/Controller/"
     type:       annotation
@@ -79,7 +81,7 @@ After installation and configuration, the service can be directly referenced fro
 
 ```php
 <?php
-public function indexAction()
+public function indexAction($formId)
 {
     $form = $this->get('netvlies.form')->get($formId);
 
@@ -93,4 +95,37 @@ Or directly from the view.
 
 {{ show_form(formId) }}
 
+```
+
+## Form submit and success handling
+
+The bundle provides a default success listener which handles default functionality like storing a result and sending a
+confirmation email (when enabled through the admin). Of course you can implement your own application specific success
+handling by overriding the default listener (netvlies.listener.form.success) or attaching an additional listener.
+Whichever option you prefer. The same holds for the submit listener, which handles the form posts.
+
+### Attaching an additional listener
+
+``` yml
+// app/config/services.yml
+
+acme.listener.form.success:
+    class: Acme\DemoBundle\EventListener\FormSuccessListener
+    calls:
+      - [ setContainer, [@service_container] ]
+    tags:
+      - { name: kernel.event_listener, event: form.success }
+```
+
+### Overriding the default listener
+
+``` yml
+// app/config/services.yml
+
+netvlies.listener.form.success:
+    class: Acme\DemoBundle\EventListener\FormSuccessListener
+    calls:
+      - [ setContainer, [@service_container] ]
+    tags:
+      - { name: kernel.event_listener, event: form.success }
 ```
