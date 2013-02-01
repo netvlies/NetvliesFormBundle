@@ -28,6 +28,7 @@ class FieldAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('label')
+            ->add('type')
         ;
     }
 }

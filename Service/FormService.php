@@ -23,7 +23,7 @@ class FormService extends ContainerAware
      */
     public function get($id)
     {
-        if (!isset($forms[$id])) {
+        if (!isset($this->forms[$id])) {
 
             $contentRepository = $this->container->get('doctrine')->getRepository('NetvliesFormBundle:Form');
             $form = $contentRepository->findOneById($id);

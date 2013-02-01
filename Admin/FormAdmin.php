@@ -22,11 +22,18 @@ class FormAdmin extends Admin
             ->add('contactEmail', null, array('required' => false))
             ->add('mailSubject', null, array('required' => false))
             ->add('mailContent', null, array('required' => false))
-            ->add('fields', 'sonata_type_collection', array('required' => false), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-            ))
+            ->add('fields', 'sonata_type_collection',
+                array(
+                    'required' => false,
+                    'by_reference' => false,
+                ),
+                array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position',
+                    //'link_parameters' => array('context' => $context),
+                )
+            )
         ;
     }
 
