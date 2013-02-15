@@ -17,35 +17,35 @@ class FieldTypeFixture extends AbstractFixture implements FixtureInterface, Orde
     {
         $fieldType = new FieldType();
         $fieldType->setTag('text');
-        $fieldType->setLabel('Tekstregel');
+        $fieldType->setLabel('Text (single line)');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_text', $fieldType);
 
         $fieldType = new FieldType();
         $fieldType->setTag('textarea');
-        $fieldType->setLabel('Tekstblok');
+        $fieldType->setLabel('Text area');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_textarea', $fieldType);
 
         $fieldType = new FieldType();
         $fieldType->setTag('email');
-        $fieldType->setLabel('E-mailadres');
+        $fieldType->setLabel('Email address');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_email', $fieldType);
 
         $fieldType = new FieldType();
         $fieldType->setTag('phone_number');
-        $fieldType->setLabel('Telefoonnummer');
+        $fieldType->setLabel('Phone number');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_phone_number', $fieldType);
 
         $fieldType = new FieldType();
         $fieldType->setTag('date');
-        $fieldType->setLabel('Datum');
+        $fieldType->setLabel('Date');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_date', $fieldType);
@@ -59,14 +59,14 @@ class FieldTypeFixture extends AbstractFixture implements FixtureInterface, Orde
 
         $fieldType = new FieldType();
         $fieldType->setTag('radio');
-        $fieldType->setLabel('Radio');
+        $fieldType->setLabel('Radio select');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_radio', $fieldType);
 
         $fieldType = new FieldType();
         $fieldType->setTag('dropdown');
-        $fieldType->setLabel('Dropdown');
+        $fieldType->setLabel('Dropdown select');
         $manager->persist($fieldType);
 
         $this->addReference('field_type_dropdown', $fieldType);

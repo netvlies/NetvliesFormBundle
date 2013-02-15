@@ -17,21 +17,21 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
     {
         // Contact form fields
         $field = new Field();
-        $field->setLabel('Naam');
+        $field->setLabel('Name');
         $field->setType($manager->merge($this->getReference('field_type_text')));
         $manager->persist($field);
 
         $this->addReference('field_contact_name', $field);
 
         $field = new Field();
-        $field->setLabel('E-mailadres');
+        $field->setLabel('Email address');
         $field->setType($manager->merge($this->getReference('field_type_email')));
         $manager->persist($field);
 
         $this->addReference('field_contact_email', $field);
 
         $field = new Field();
-        $field->setLabel('Bericht');
+        $field->setLabel('Message');
         $field->setType($manager->merge($this->getReference('field_type_textarea')));
         $manager->persist($field);
 
@@ -39,21 +39,21 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
 
         // Application form fields
         $field = new Field();
-        $field->setLabel('Naam');
+        $field->setLabel('Name');
         $field->setType($manager->merge($this->getReference('field_type_text')));
         $manager->persist($field);
 
         $this->addReference('field_application_name', $field);
 
         $field = new Field();
-        $field->setLabel('Functie');
-        $field->setType($manager->merge($this->getReference('field_type_email')));
+        $field->setLabel('Function');
+        $field->setType($manager->merge($this->getReference('field_type_text')));
         $manager->persist($field);
 
         $this->addReference('field_application_function', $field);
 
         $field = new Field();
-        $field->setLabel('Motivatie');
+        $field->setLabel('Motivation');
         $field->setType($manager->merge($this->getReference('field_type_textarea')));
         $manager->persist($field);
 

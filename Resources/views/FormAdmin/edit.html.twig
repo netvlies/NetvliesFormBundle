@@ -1,0 +1,15 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.mail_toggle').change(function() {
+                $('.mail_related').parent().parent().toggle(this.checked);
+            }).change();
+        })
+    </script>
+
+{% endblock %}
