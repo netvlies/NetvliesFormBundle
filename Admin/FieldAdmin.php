@@ -17,7 +17,8 @@ class FieldAdmin extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        //ladybug_dump($formMapper);
+        $adminAttributes = $formMapper->getFormBuilder()->getAttribute('sonata_admin');
+        $editInline = isset($adminAttributes['edit']) && $adminAttributes['edit'] == 'inline';
 
         $formMapper
             ->add('label')
@@ -25,14 +26,15 @@ class FieldAdmin extends Admin
             ->add('required')
         ;
 
-        if (true) {
+        // Do not show the following fields when in inline editing mode
+        if (!$editInline) {
 
             $formMapper
                 ->add('default', null, array('label' => 'Default value'))
                 ->add('options', 'sonata_type_collection',
                     array(
                         'required' => false,
-                        'by_reference' => true,
+                        'by_reference' => false,
                     ),
                     array(
                         'edit' => 'inline',

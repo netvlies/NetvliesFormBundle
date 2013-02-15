@@ -190,6 +190,8 @@ class Field
      */
     public function addOption(\Netvlies\Bundle\FormBundle\Entity\Option $options)
     {
+        $options->setField($this);
+
         $this->options[] = $options;
 
         return $this;

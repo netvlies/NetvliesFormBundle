@@ -80,7 +80,7 @@ class Form
      * @Assert\NotBlank(groups={"contact"})
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $mailContent;
+    protected $mailBody;
 
     /**
      * @var
@@ -319,26 +319,26 @@ class Form
     }
 
     /**
-     * Set mailContent
+     * Set mailBody
      *
-     * @param  string $mailContent
+     * @param  string $mailBody
      * @return Form
      */
-    public function setMailContent($mailContent)
+    public function setMailBody($mailBody)
     {
-        $this->mailContent = $mailContent;
+        $this->mailBody = $mailBody;
 
         return $this;
     }
 
     /**
-     * Get mailContent
+     * Get mailBody
      *
      * @return string
      */
-    public function getMailContent()
+    public function getMailBody()
     {
-        return $this->mailContent;
+        return $this->mailBody;
     }
 
     /**

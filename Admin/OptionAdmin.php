@@ -36,9 +36,4 @@ class OptionAdmin extends Admin
             ->addIdentifier('label')
         ;
     }
-
-    protected function configureRoutes(RouteCollection $collection)
-    {
-        $collection->remove('create');
-    }
 }

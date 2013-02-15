@@ -19,6 +19,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         $field = new Field();
         $field->setLabel('Name');
         $field->setType($manager->merge($this->getReference('field_type_text')));
+        $field->setRequired(true);
         $manager->persist($field);
 
         $this->addReference('field_contact_name', $field);
@@ -26,6 +27,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         $field = new Field();
         $field->setLabel('Email address');
         $field->setType($manager->merge($this->getReference('field_type_email')));
+        $field->setRequired(true);
         $manager->persist($field);
 
         $this->addReference('field_contact_email', $field);
@@ -33,6 +35,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         $field = new Field();
         $field->setLabel('Message');
         $field->setType($manager->merge($this->getReference('field_type_textarea')));
+        $field->setRequired(true);
         $manager->persist($field);
 
         $this->addReference('field_contact_message', $field);

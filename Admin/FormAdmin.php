@@ -18,18 +18,18 @@ class FormAdmin extends Admin
     {
         $formMapper
             ->add('label')
-            ->add('storeResults', null, array('label' => 'Store results'))
+            ->add('successUrl', null, array('label' => 'Success URL', 'required' => false))
             ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'mail_toggle')))
-            ->add('successUrl', null, array('label' => 'Success URL', 'attr' => array('class' => 'mail_related'), 'required' => false))
             ->add('contactName', null, array('label' => 'Contact name', 'attr' => array('class' => 'mail_related'), 'required' => false))
             ->add('contactEmail', null, array('label' => 'Contact email', 'attr' => array('class' => 'mail_related'), 'required' => false))
             ->add('mailSubject', null, array('label' => 'Mail subject', 'attr' => array('class' => 'mail_related'), 'required' => false))
-            ->add('mailContent', null, array('label' => 'Mail content', 'attr' => array('class' => 'mail_related'), 'required' => false))
-            ->add('addCaptcha', null, array('label' => 'Use CAPTCHA'))
+            ->add('mailBody', null, array('label' => 'Mail body', 'attr' => array('class' => 'mail_related'), 'required' => false))
+            ->add('storeResults', null, array('label' => 'Store results'))
+            ->add('addCaptcha', null, array('label' => 'Add CAPTCHA'))
             ->add('fields', 'sonata_type_collection',
                 array(
                     'required' => false,
-                    'by_reference' => true,
+                    'by_reference' => false,
                 ),
                 array(
                     'edit' => 'inline',
