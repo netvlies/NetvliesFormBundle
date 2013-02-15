@@ -5,6 +5,7 @@ namespace Netvlies\Bundle\FormBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class FormAdmin extends Admin
 {
@@ -46,10 +47,15 @@ class FormAdmin extends Admin
             ->addIdentifier('label')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'export' => array('template' => 'NetvliesFormBundle:Sonata:CRUD/list__action_export.html.twig'),
+                    'results' => array('template' => 'NetvliesFormBundle:FormAdmin:list__action_results.html.twig'),
                 )
             ))
         ;
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('results', $this->getRouterIdParameter().'/results');
     }
 
     public function getTemplate($name)

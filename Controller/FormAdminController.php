@@ -9,7 +9,7 @@ use PHPExcel_Writer_Excel2007;
 
 class FormAdminController extends CRUDController
 {
-    public function exportAction(Form $form)
+    public function resultsAction(Form $form)
     {
         $excel = new PHPExcel();
         $excel->setActiveSheetIndex(0);

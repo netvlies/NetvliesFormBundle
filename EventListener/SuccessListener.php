@@ -28,8 +28,6 @@ class SuccessListener extends ContainerAware
         if ($successUrl == null) {
             $currentRoute = $this->container->get('request')->attributes->get('_route');
             $successUrl = $this->container->get('router')->generate($currentRoute, array('success' => 'true'), true);
-            var_dump($successUrl);
-            die;
         }
 
         $redirectResponse = new RedirectResponse($successUrl);

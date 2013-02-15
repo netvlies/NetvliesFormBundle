@@ -23,13 +23,13 @@ class FieldAdmin extends Admin
         $formMapper
             ->add('label')
             ->add('type', 'sonata_type_model')
-            ->add('required')
         ;
 
-        // Do not show the following fields when in inline editing mode
+        // Do not show all fields when in inline editing mode
         if (!$editInline) {
 
             $formMapper
+                ->add('required')
                 ->add('default', null, array('label' => 'Default value'))
                 ->add('options', 'sonata_type_collection',
                     array(
