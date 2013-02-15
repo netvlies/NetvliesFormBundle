@@ -37,13 +37,6 @@ class FieldTypeFixture extends AbstractFixture implements FixtureInterface, Orde
         $this->addReference('field_type_email', $fieldType);
 
         $fieldType = new FieldType();
-        $fieldType->setTag('phone_number');
-        $fieldType->setLabel('Phone number');
-        $manager->persist($fieldType);
-
-        $this->addReference('field_type_phone_number', $fieldType);
-
-        $fieldType = new FieldType();
         $fieldType->setTag('date');
         $fieldType->setLabel('Date');
         $manager->persist($fieldType);
@@ -63,13 +56,6 @@ class FieldTypeFixture extends AbstractFixture implements FixtureInterface, Orde
         $manager->persist($fieldType);
 
         $this->addReference('field_type_radio', $fieldType);
-
-        $fieldType = new FieldType();
-        $fieldType->setTag('dropdown');
-        $fieldType->setLabel('Dropdown select');
-        $manager->persist($fieldType);
-
-        $this->addReference('field_type_dropdown', $fieldType);
 
         $manager->flush();
     }

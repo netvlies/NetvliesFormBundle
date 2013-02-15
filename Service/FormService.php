@@ -30,7 +30,19 @@ class FormService extends ContainerAware
             $formBuilder->add('form_id', 'hidden', array('data' => $id));
 
             foreach ($form->getFields() as $field) {
-                $formBuilder->add('field_'.$field->getId(), $field->getType()->getTag(), array('label' => $field->getLabel()));
+                $type = $field->getType()->getTag();
+                $options = array('label' => $field->getLabel());
+                // @todo create better extension mechanism to replace case statement
+                switch ($field->getType()->getTag()) {
+                    case 'radio':
+                        $type = 'choice';
+                        $options['choices'] = array();
+                        foreach ($field->getOptions() as $option) {
+                            $options['choices'][$option->getLabel()] = $option->getLabel();
+                        }
+                        break;
+                }
+                $formBuilder->add('field_'.$field->getId(), $type, $options);
             }
 
             if ($form->getAddCaptcha()) {
