@@ -97,6 +97,12 @@ Or directly from the view.
 
 ```
 
+## Form HTML
+
+This bundle currently only supports the default form theme which is used by your main project. Read the documentation on
+[`form customization`](http://symfony.com/doc/current/cookbook/form/form_customization.html) for more information on
+tweaking the form layout for your project.
+
 ## Form submit and success handling
 
 The bundle provides a default success listener which handles default functionality like storing a result and sending a
