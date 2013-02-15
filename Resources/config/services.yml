@@ -7,7 +7,7 @@ services:
           - Netvlies\Bundle\FormBundle\Entity\Field
           - NetvliesFormBundle:FieldAdmin
         tags:
-          - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields }
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields, show_in_dashboard: false }
 
     netvlies.form.field_type.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FieldTypeAdmin

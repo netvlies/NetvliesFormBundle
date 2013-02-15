@@ -45,7 +45,7 @@ class Form
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $addCaptcha = true;
+    protected $addCaptcha = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -93,6 +93,8 @@ class Form
     public function setSf2Form($sf2Form)
     {
         $this->sf2Form = $sf2Form;
+
+        return $this;
     }
 
     /**
@@ -119,6 +121,8 @@ class Form
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     public function getId()
@@ -129,6 +133,8 @@ class Form
     public function setLabel($label)
     {
         $this->label = $label;
+
+        return $this;
     }
 
     public function getLabel()
@@ -275,6 +281,8 @@ class Form
     public function removeField(Field $field)
     {
         $this->fields->removeElement($field);
+
+        return $this;
     }
 
     /**
@@ -356,6 +364,8 @@ class Form
     public function removeResult(Result $result)
     {
         $this->results->removeElement($result);
+
+        return $this;
     }
 
     /**

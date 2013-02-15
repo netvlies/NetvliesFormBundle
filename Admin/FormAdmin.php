@@ -4,34 +4,37 @@ namespace Netvlies\Bundle\FormBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
 
 class FormAdmin extends Admin
 {
+    protected $datagridValues = array(
+        '_page'       => 1,
+        '_sort_by' => 'label',
+        '_sort_order' => 'ASC'
+    );
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('label')
-            ->add('addCaptcha')
-            ->add('storeResult')
-            ->add('sendMail')
-            ->add('successUrl', null, array('required' => false))
-            ->add('contactName', null, array('required' => false))
-            ->add('contactEmail', null, array('required' => false))
-            ->add('mailSubject', null, array('required' => false))
-            ->add('mailContent', null, array('required' => false))
+            ->add('storeResult', null, array('label' => 'Store result'))
+            ->add('sendMail', null, array('label' => 'Send mail'))
+            ->add('successUrl', null, array('label' => 'Success URL', 'required' => false))
+            ->add('contactName', null, array('label' => 'Contact name', 'required' => false))
+            ->add('contactEmail', null, array('label' => 'Contact email', 'required' => false))
+            ->add('mailSubject', null, array('label' => 'Mail subject', 'required' => false))
+            ->add('mailContent', null, array('label' => 'Mail content', 'required' => false))
+            ->add('addCaptcha', null, array('label' => 'Use CAPTCHA'))
             ->add('fields', 'sonata_type_collection',
                 array(
                     'required' => false,
-                    'by_reference' => false,
+                    'by_reference' => true,
                 ),
                 array(
                     'edit' => 'inline',
                     'inline' => 'table',
                     'sortable' => 'position',
-                    //'link_parameters' => array('context' => $context),
                 )
             )
         ;

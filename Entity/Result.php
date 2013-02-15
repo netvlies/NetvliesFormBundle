@@ -36,7 +36,7 @@ class Result
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -52,7 +52,7 @@ class Result
     public function setForm(Form $form = null)
     {
         $this->form = $form;
-    
+
         return $this;
     }
 
@@ -72,7 +72,7 @@ class Result
     {
         $this->entries = new ArrayCollection();
     }
-    
+
     /**
      * Add entry
      *
@@ -84,7 +84,7 @@ class Result
         $entry->setResult($this);
 
         $this->entries[] = $entry;
-    
+
         return $this;
     }
 
@@ -96,6 +96,8 @@ class Result
     public function removeEntry(Entry $entry)
     {
         $this->entries->removeElement($entry);
+
+        return $this;
     }
 
     /**
@@ -117,14 +119,14 @@ class Result
     public function setDatetimeAdded($datetimeAdded)
     {
         $this->datetimeAdded = $datetimeAdded;
-    
+
         return $this;
     }
 
     /**
      * Get datetimeAdded
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatetimeAdded()
     {
@@ -140,7 +142,7 @@ class Result
     public function addEntrie(\Netvlies\Bundle\FormBundle\Entity\Entry $entries)
     {
         $this->entries[] = $entries;
-    
+
         return $this;
     }
 
@@ -152,5 +154,7 @@ class Result
     public function removeEntrie(\Netvlies\Bundle\FormBundle\Entity\Entry $entries)
     {
         $this->entries->removeElement($entries);
+
+        return $this;
     }
 }

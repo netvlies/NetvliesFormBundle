@@ -23,6 +23,11 @@ class Field
     protected $label;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $required = false;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $position;
@@ -40,6 +45,8 @@ class Field
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     public function getType()
@@ -50,6 +57,8 @@ class Field
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     public function getId()
@@ -60,6 +69,8 @@ class Field
     public function setLabel($label)
     {
         $this->label = $label;
+
+        return $this;
     }
 
     public function getLabel()
@@ -81,7 +92,7 @@ class Field
     public function setForm(Form $form = null)
     {
         $this->form = $form;
-    
+
         return $this;
     }
 
@@ -95,6 +106,18 @@ class Field
         return $this->form;
     }
 
+    public function setRequired($required)
+    {
+        $this->required = $required;
+
+        return $this;
+    }
+
+    public function getRequired()
+    {
+        return $this->required;
+    }
+
     /**
      * Set position
      *
@@ -104,14 +127,14 @@ class Field
     public function setPosition($position)
     {
         $this->position = $position;
-    
+
         return $this;
     }
 
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {

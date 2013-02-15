@@ -30,6 +30,8 @@ class FieldType
     public function setTag($tag)
     {
         $this->tag = $tag;
+
+        return $this;
     }
 
     public function getTag()
@@ -40,6 +42,8 @@ class FieldType
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     public function getId()
@@ -50,6 +54,8 @@ class FieldType
     public function setLabel($label)
     {
         $this->label = $label;
+
+        return $this;
     }
 
     public function getLabel()
