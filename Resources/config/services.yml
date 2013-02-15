@@ -5,7 +5,7 @@ services:
         arguments:
           - null
           - Netvlies\Bundle\FormBundle\Entity\Field
-          - NetvliesFormBundle:FieldAdmin
+          - null
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields, show_in_dashboard: false }
 
@@ -14,7 +14,7 @@ services:
         arguments:
           - null
           - Netvlies\Bundle\FormBundle\Entity\FieldType
-          - NetvliesFormBundle:FieldTypeAdmin
+          - null
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types, show_in_dashboard: false }
 
@@ -23,7 +23,7 @@ services:
         arguments:
           - null
           - Netvlies\Bundle\FormBundle\Entity\Form
-          - NetvliesFormBundle:FormAdmin
+          - null
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Forms }
 
