@@ -50,7 +50,7 @@ class Form
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $storeResult = true;
+    protected $storeResults = true;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -160,32 +160,32 @@ class Form
     }
 
     /**
-     * Set storeResult
+     * Set storeResults
      *
-     * @param boolean $storeResult
+     * @param  boolean $storeResults
      * @return Form
      */
-    public function setStoreResult($storeResult)
+    public function setStoreResults($storeResults)
     {
-        $this->storeResult = $storeResult;
+        $this->storeResults = $storeResults;
 
         return $this;
     }
 
     /**
-     * Get storeResult
+     * Get storeResults
      *
      * @return boolean
      */
-    public function getStoreResult()
+    public function getStoreResults()
     {
-        return $this->storeResult;
+        return $this->storeResults;
     }
 
     /**
      * Set sendMail
      *
-     * @param boolean $sendMail
+     * @param  boolean $sendMail
      * @return Form
      */
     public function setSendMail($sendMail)
@@ -208,7 +208,7 @@ class Form
     /**
      * Set contactName
      *
-     * @param string $contactName
+     * @param  string $contactName
      * @return Form
      */
     public function setContactName($contactName)
@@ -231,7 +231,7 @@ class Form
     /**
      * Set contactEmail
      *
-     * @param string $contactEmail
+     * @param  string $contactEmail
      * @return Form
      */
     public function setContactEmail($contactEmail)
@@ -261,7 +261,7 @@ class Form
     /**
      * Add fields
      *
-     * @param Field $field
+     * @param  Field $field
      * @return Form
      */
     public function addField(Field $field)
@@ -298,7 +298,7 @@ class Form
     /**
      * Set mailSubject
      *
-     * @param string $mailSubject
+     * @param  string $mailSubject
      * @return Form
      */
     public function setMailSubject($mailSubject)
@@ -321,7 +321,7 @@ class Form
     /**
      * Set mailContent
      *
-     * @param string $mailContent
+     * @param  string $mailContent
      * @return Form
      */
     public function setMailContent($mailContent)
@@ -344,7 +344,7 @@ class Form
     /**
      * Add results
      *
-     * @param Result $result
+     * @param  Result $result
      * @return Form
      */
     public function addResult(Result $result)
@@ -381,7 +381,7 @@ class Form
     /**
      * Set successUrl
      *
-     * @param string $successUrl
+     * @param  string $successUrl
      * @return Form
      */
     public function setSuccessUrl($successUrl)

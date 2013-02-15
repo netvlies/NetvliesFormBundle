@@ -4,7 +4,6 @@ namespace Netvlies\Bundle\FormBundle\Twig\Extension;
 
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Form\FormBuilder;
 
 class FormExtension extends \Twig_Extension implements ContainerAwareInterface
 {
@@ -52,7 +51,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
      *
      * @return string The extension name
      */
-    function getName()
+    public function getName()
     {
         return 'form_extension';
     }

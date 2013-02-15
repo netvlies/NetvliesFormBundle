@@ -16,7 +16,7 @@ class SuccessListener extends ContainerAware
 
         $result = $this->createResult($form);
 
-        if ($form->getStoreResult()) {
+        if ($form->getStoreResults()) {
             $this->storeResult($form, $result);
         }
 

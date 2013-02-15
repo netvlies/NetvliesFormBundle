@@ -7,7 +7,6 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Netvlies\Bundle\FormBundle\Entity\Form;
-use Netvlies\Bundle\FormBundle\Entity\Field;
 
 class FormFixture extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {

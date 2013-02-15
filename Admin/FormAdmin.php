@@ -5,7 +5,6 @@ namespace Netvlies\Bundle\FormBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 class FormAdmin extends Admin
 {
@@ -19,7 +18,7 @@ class FormAdmin extends Admin
     {
         $formMapper
             ->add('label')
-            ->add('storeResult', null, array('label' => 'Store result'))
+            ->add('storeResults', null, array('label' => 'Store results'))
             ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'mail_toggle')))
             ->add('successUrl', null, array('label' => 'Success URL', 'attr' => array('class' => 'mail_related'), 'required' => false))
             ->add('contactName', null, array('label' => 'Contact name', 'attr' => array('class' => 'mail_related'), 'required' => false))
@@ -55,8 +54,7 @@ class FormAdmin extends Admin
 
     public function getTemplate($name)
     {
-        switch ($name)
-        {
+        switch ($name) {
             case 'edit':
                 return 'NetvliesFormBundle:FormAdmin:edit.html.twig';
                 break;

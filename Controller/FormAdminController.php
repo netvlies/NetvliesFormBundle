@@ -2,21 +2,13 @@
 
 namespace Netvlies\Bundle\FormBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sonata\AdminBundle\Controller\CRUDController;
 use Netvlies\Bundle\FormBundle\Entity\Form;
 use PHPExcel;
 use PHPExcel_Writer_Excel2007;
 
-class FormController extends Controller
+class FormAdminController extends CRUDController
 {
-    /**
-     * @Route("/export/{id}", name="form_export")
-     * @Template()
-     */
     public function exportAction(Form $form)
     {
         $excel = new PHPExcel();

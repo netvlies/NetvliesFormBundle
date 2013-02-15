@@ -35,7 +35,7 @@ class Entry
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -45,13 +45,13 @@ class Entry
     /**
      * Set result
      *
-     * @param Result $result
+     * @param  Result $result
      * @return Entry
      */
     public function setResult(Result $result = null)
     {
         $this->result = $result;
-    
+
         return $this;
     }
 
@@ -68,13 +68,13 @@ class Entry
     /**
      * Set field
      *
-     * @param Field $field
+     * @param  Field $field
      * @return Entry
      */
     public function setField(Field $field = null)
     {
         $this->field = $field;
-    
+
         return $this;
     }
 
@@ -91,20 +91,20 @@ class Entry
     /**
      * Set value
      *
-     * @param string $value
+     * @param  string $value
      * @return Entry
      */
     public function setValue($value)
     {
         $this->value = $value;
-    
+
         return $this;
     }
 
     /**
      * Get value
      *
-     * @return string 
+     * @return string
      */
     public function getValue()
     {

@@ -2,10 +2,7 @@
 
 namespace Netvlies\Bundle\FormBundle\Service;
 
-use Netvlies\Bundle\FormBundle\Event\FormEvent;
-
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Request;
 
 class FormService extends ContainerAware
 {

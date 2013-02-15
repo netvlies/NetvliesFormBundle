@@ -1,5 +1,14 @@
 services:
 
+    netvlies.form.form.admin:
+          class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
+          arguments:
+            - null
+            - Netvlies\Bundle\FormBundle\Entity\Form
+            - null
+          tags:
+            - { name: sonata.admin, manager_type: orm, group: Forms, label: Forms }
+
     netvlies.form.field.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
         arguments:
@@ -9,6 +18,15 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields, show_in_dashboard: false }
 
+    netvlies.form.option.admin:
+        class: Netvlies\Bundle\FormBundle\Admin\OptionAdmin
+        arguments:
+          - null
+          - Netvlies\Bundle\FormBundle\Entity\Option
+          - null
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Forms, label: Options, show_in_dashboard: false }
+
     netvlies.form.field_type.admin:
         class: Netvlies\Bundle\FormBundle\Admin\FieldTypeAdmin
         arguments:
@@ -17,15 +35,6 @@ services:
           - null
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Field types, show_in_dashboard: false }
-
-    netvlies.form.form.admin:
-        class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
-        arguments:
-          - null
-          - Netvlies\Bundle\FormBundle\Entity\Form
-          - null
-        tags:
-          - { name: sonata.admin, manager_type: orm, group: Forms, label: Forms }
 
     netvlies.form:
         class: Netvlies\Bundle\FormBundle\Service\FormService

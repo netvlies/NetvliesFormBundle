@@ -46,7 +46,7 @@ class Result
     /**
      * Set form
      *
-     * @param Form $form
+     * @param  Form   $form
      * @return Result
      */
     public function setForm(Form $form = null)
@@ -76,7 +76,7 @@ class Result
     /**
      * Add entry
      *
-     * @param Entry $entry
+     * @param  Entry  $entry
      * @return Result
      */
     public function addEntry(Entry $entry)
@@ -113,7 +113,7 @@ class Result
     /**
      * Set datetimeAdded
      *
-     * @param \DateTime $datetimeAdded
+     * @param  \DateTime $datetimeAdded
      * @return Result
      */
     public function setDatetimeAdded($datetimeAdded)
@@ -136,7 +136,7 @@ class Result
     /**
      * Add entries
      *
-     * @param Netvlies\Bundle\FormBundle\Entity\Entry $entries
+     * @param  Netvlies\Bundle\FormBundle\Entity\Entry $entries
      * @return Result
      */
     public function addEntrie(\Netvlies\Bundle\FormBundle\Entity\Entry $entries)
