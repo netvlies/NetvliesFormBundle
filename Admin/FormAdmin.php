@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Netvlies\Bundle\FormBundle\Entity\Form;
 
 class FormAdmin extends Admin
 {
@@ -29,8 +30,7 @@ class FormAdmin extends Admin
             ->add('addCaptcha', null, array('label' => 'Add CAPTCHA'))
             ->add('fields', 'sonata_type_collection',
                 array(
-                    'required' => false,
-                    'by_reference' => false,
+
                 ),
                 array(
                     'edit' => 'inline',

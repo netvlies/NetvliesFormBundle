@@ -33,7 +33,7 @@ class Form
     protected $successUrl;
 
     /**
-     * @ORM\OneToMany(targetEntity="Field", mappedBy="form", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Field", mappedBy="form", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $fields;
 

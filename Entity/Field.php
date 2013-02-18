@@ -23,7 +23,7 @@ class Field
     protected $label;
 
     /**
-     * @ORM\OneToMany(targetEntity="Option", mappedBy="field", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Option", mappedBy="field", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     protected $options;
 
