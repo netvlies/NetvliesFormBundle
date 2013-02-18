@@ -38,7 +38,7 @@ class FieldAdmin extends Admin
 
         if (!$editInline) {
             $formMapper
-                ->add('required')
+                ->add('required', null, array('attr' => array('class' => 'field_required')))
                 ->add('default', null, array('label' => 'Default value', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',
                     array(

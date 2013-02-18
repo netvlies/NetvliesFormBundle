@@ -7,8 +7,24 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.field_type').change(function() {
-                alert(this.value);
-                $('.field_default').parent().parent().show();
+                // required
+                if (this.value != 'checkbox') {
+                    $('.field_required').parent().parent().show();
+                } else {
+                    $('.field_required').parent().parent().hide();
+                }
+                // default
+                if (this.value != 'checkbox') {
+                    $('.field_default').parent().parent().show();
+                } else {
+                    $('.field_default').parent().parent().hide();
+                }
+                // options
+                if (this.value == 'radio' || this.value == 'dropdown') {
+                    $('.sonata-ba-field-inline-table').parent().show();
+                } else {
+                    $('.sonata-ba-field-inline-table').parent().hide();
+                }
             }).change();
         })
     </script>
