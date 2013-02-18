@@ -22,18 +22,29 @@ class FieldAdmin extends Admin
 
         $formMapper
             ->add('label')
-            ->add('type', 'sonata_type_model')
+            ->add('type', 'choice', array(
+                'required' => true,
+                'choices' => array(
+                    'text' => 'Text (single line)',
+                    'textarea' => 'Textarea',
+                    'email' => 'Email address',
+                    'date' => 'Date',
+                    'checkbox' => 'Checkbox',
+                    'radio' => 'Radio select',
+                    'dropdown' => 'Drop-down'
+                ),
+                'attr' => array('class' => 'field_type')))
         ;
 
-        // Do not show all fields when in inline editing mode
         if (!$editInline) {
             $formMapper
                 ->add('required')
-                ->add('default', null, array('label' => 'Default value'))
+                ->add('default', null, array('label' => 'Default value', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',
                     array(
                         'required' => false,
                         'by_reference' => false,
+                        'attr' => array('class' => 'field_options'), // looks like this doesn't work
                     ),
                     array(
                         'edit' => 'inline',

@@ -18,7 +18,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         // Contact form fields
         $field = new Field();
         $field->setLabel('Salutation');
-        $field->setType($manager->merge($this->getReference('field_type_radio')));
+        $field->setType('radio');
         $field->setRequired(true);
         $field->addOption($manager->merge($this->getReference('option_contact_mr')));
         $field->addOption($manager->merge($this->getReference('option_contact_mrs')));
@@ -29,7 +29,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
 
         $field = new Field();
         $field->setLabel('Name');
-        $field->setType($manager->merge($this->getReference('field_type_text')));
+        $field->setType('text');
         $field->setRequired(true);
         $manager->persist($field);
 
@@ -37,7 +37,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
 
         $field = new Field();
         $field->setLabel('Email address');
-        $field->setType($manager->merge($this->getReference('field_type_email')));
+        $field->setType('email');
         $field->setRequired(true);
         $manager->persist($field);
 
@@ -45,7 +45,7 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
 
         $field = new Field();
         $field->setLabel('Message');
-        $field->setType($manager->merge($this->getReference('field_type_textarea')));
+        $field->setType('textarea');
         $field->setRequired(true);
         $manager->persist($field);
 
@@ -54,21 +54,21 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         // Application form fields
         $field = new Field();
         $field->setLabel('Name');
-        $field->setType($manager->merge($this->getReference('field_type_text')));
+        $field->setType('text');
         $manager->persist($field);
 
         $this->addReference('field_application_name', $field);
 
         $field = new Field();
         $field->setLabel('Function');
-        $field->setType($manager->merge($this->getReference('field_type_text')));
+        $field->setType('text');
         $manager->persist($field);
 
         $this->addReference('field_application_function', $field);
 
         $field = new Field();
         $field->setLabel('Motivation');
-        $field->setType($manager->merge($this->getReference('field_type_textarea')));
+        $field->setType('textarea');
         $manager->persist($field);
 
         $this->addReference('field_application_motivation', $field);

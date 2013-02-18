@@ -6,8 +6,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.mail_toggle').change(function() {
-                $('.mail_related').parent().parent().toggle(this.checked);
+            $('.field_type').change(function() {
+                alert(this.value);
+                $('.field_default').parent().parent().show();
             }).change();
         })
     </script>

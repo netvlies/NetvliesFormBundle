@@ -23,10 +23,14 @@ class Field
     protected $label;
 
     /**
-     * @ORM\OneToMany(targetEntity="Option", mappedBy="field", cascade={"persist", "remove"}, orphanRemoval=true)
-     * @ORM\OrderBy({"position"="ASC"})
+     * @ORM\Column(type="string", length=255)
      */
-    protected $options;
+    protected $type;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $required = false;
 
     /**
      * @ORM\Column(name="defaultValue", type="string", length=255, nullable=true)
@@ -34,9 +38,10 @@ class Field
     protected $default;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\OneToMany(targetEntity="Option", mappedBy="field", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position"="ASC"})
      */
-    protected $required = false;
+    protected $options;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -47,11 +52,6 @@ class Field
      * @ORM\ManyToOne(targetEntity="Form", inversedBy="fields", cascade={"persist"})
      */
     protected $form;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="FieldType")
-     */
-    protected $type;
 
     public function setType($type)
     {
