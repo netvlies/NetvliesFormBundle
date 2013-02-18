@@ -24,6 +24,7 @@ class Field
 
     /**
      * @ORM\OneToMany(targetEntity="Option", mappedBy="field", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position"="ASC"})
      */
     protected $options;
 

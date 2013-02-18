@@ -34,6 +34,7 @@ class Form
 
     /**
      * @ORM\OneToMany(targetEntity="Field", mappedBy="form", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position"="ASC"})
      */
     protected $fields;
 

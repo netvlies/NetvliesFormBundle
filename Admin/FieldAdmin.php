@@ -45,6 +45,10 @@ class FieldAdmin extends Admin
             ;
 
         }
+
+        $formMapper
+            ->add('position')
+        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -59,6 +63,7 @@ class FieldAdmin extends Admin
         $listMapper
             ->addIdentifier('label')
             ->add('type')
+            ->add('position')
         ;
     }
 
