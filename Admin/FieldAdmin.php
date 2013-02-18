@@ -27,7 +27,6 @@ class FieldAdmin extends Admin
 
         // Do not show all fields when in inline editing mode
         if (!$editInline) {
-
             $formMapper
                 ->add('required')
                 ->add('default', null, array('label' => 'Default value'))
@@ -43,12 +42,13 @@ class FieldAdmin extends Admin
                     )
                 )
             ;
-
         }
 
-        $formMapper
-            ->add('position')
-        ;
+        if ($editInline) {
+            $formMapper
+                ->add('position')
+            ;
+        }
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

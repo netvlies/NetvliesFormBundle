@@ -18,9 +18,18 @@ class OptionAdmin extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $adminAttributes = $formMapper->getFormBuilder()->getAttribute('sonata_admin');
+        $editInline = isset($adminAttributes['edit']) && $adminAttributes['edit'] == 'inline';
+
         $formMapper
             ->add('label')
         ;
+
+        if ($editInline) {
+            $formMapper
+                ->add('position')
+            ;
+        }
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
