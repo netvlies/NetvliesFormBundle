@@ -34,6 +34,8 @@ class SubmitListener extends ContainerAware
 
                 if ($sf2Form->isValid()) {
 
+                    $form->setSuccess(true);
+
                     $event = new FormEvent($form);
 
                     $dispatcher = $this->container->get('event_dispatcher');

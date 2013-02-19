@@ -40,10 +40,16 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
     {
         $form = $this->container->get('netvlies.form')->get($id);
 
-        return $this->container->get('templating')->render('NetvliesFormBundle:Twig:show_form.html.twig', array(
-            'id' => $form->getId(),
-            'form' => $form->getSf2Form()->createView()
-        ));
+        if ($form->getSuccess()) {
+            return $this->container->get('templating')->render('NetvliesFormBundle:Twig:form_success.html.twig', array(
+                'successMessage' => $form->getSuccessMessage()
+            ));
+        } else {
+            return $this->container->get('templating')->render('NetvliesFormBundle:Twig:form_show.html.twig', array(
+                'id' => $form->getId(),
+                'form' => $form->getSf2Form()->createView()
+            ));
+        }
     }
 
     /**

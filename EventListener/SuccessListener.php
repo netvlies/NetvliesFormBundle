@@ -25,13 +25,11 @@ class SuccessListener extends ContainerAware
         }
 
         $successUrl = $form->getSuccessUrl();
-        if ($successUrl == null) {
-            $currentRoute = $this->container->get('request')->attributes->get('_route');
-            $successUrl = $this->container->get('router')->generate($currentRoute, array('success' => 'true'), true);
-        }
 
-        $redirectResponse = new RedirectResponse($successUrl);
-        $redirectResponse->send();
+        if ($successUrl != null) {
+            $redirectResponse = new RedirectResponse($successUrl);
+            $redirectResponse->send();
+        }
     }
 
     /**

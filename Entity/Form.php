@@ -28,6 +28,11 @@ class Form
     protected $label;
 
     /**
+     * @var
+     */
+    protected $success = false;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $successUrl;
@@ -95,24 +100,6 @@ class Form
     protected $sf2Form;
 
     /**
-     * @param  $sf2Form
-     */
-    public function setSf2Form($sf2Form)
-    {
-        $this->sf2Form = $sf2Form;
-
-        return $this;
-    }
-
-    /**
-     * @return
-     */
-    public function getSf2Form()
-    {
-        return $this->sf2Form;
-    }
-
-    /**
      * Makes sure the contact validation is only performed when a mail should
      * be sent.
      *
@@ -150,6 +137,18 @@ class Form
     public function getLabel()
     {
         return $this->label;
+    }
+
+    public function setSuccess($success)
+    {
+        $this->success = $success;
+
+        return $this;
+    }
+
+    public function getSuccess()
+    {
+        return $this->success;
     }
 
     /**
@@ -427,6 +426,24 @@ class Form
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * @param  $sf2Form
+     */
+    public function setSf2Form($sf2Form)
+    {
+        $this->sf2Form = $sf2Form;
+
+        return $this;
+    }
+
+    /**
+     * @return
+     */
+    public function getSf2Form()
+    {
+        return $this->sf2Form;
     }
 
     public function __toString()
