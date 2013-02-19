@@ -33,6 +33,12 @@ class Form
     protected $successUrl;
 
     /**
+     * @Assert\NotBlank(groups={"success"})
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $successMessage;
+
+    /**
      * @ORM\OneToMany(targetEntity="Field", mappedBy="form", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position"="ASC"})
      */
@@ -117,6 +123,9 @@ class Form
         if ($this->sendMail) {
             $executionContext->getGraphWalker()->walkReference($this, 'contact', $executionContext->getPropertyPath(), true);
         }
+        if ($this->successUrl == '') {
+            $executionContext->getGraphWalker()->walkReference($this, 'success', $executionContext->getPropertyPath(), true);
+        }
     }
 
     public function setId($id)
@@ -143,9 +152,50 @@ class Form
         return $this->label;
     }
 
-    public function __toString()
+    /**
+     * Set successUrl
+     *
+     * @param  string $successUrl
+     * @return Form
+     */
+    public function setSuccessUrl($successUrl)
     {
-        return $this->label;
+        $this->successUrl = $successUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get successUrl
+     *
+     * @return string
+     */
+    public function getSuccessUrl()
+    {
+        return $this->successUrl;
+    }
+
+    /**
+     * Set successMessage
+     *
+     * @param  string $successMessage
+     * @return Form
+     */
+    public function setSuccessMessage($successMessage)
+    {
+        $this->successMessage = $successMessage;
+
+        return $this;
+    }
+
+    /**
+     * Get successMessage
+     *
+     * @return string
+     */
+    public function getSuccessMessage()
+    {
+        return $this->successMessage;
     }
 
     public function setAddCaptcha($addCaptcha)
@@ -379,26 +429,8 @@ class Form
         return $this->results;
     }
 
-    /**
-     * Set successUrl
-     *
-     * @param  string $successUrl
-     * @return Form
-     */
-    public function setSuccessUrl($successUrl)
+    public function __toString()
     {
-        $this->successUrl = $successUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get successUrl
-     *
-     * @return string
-     */
-    public function getSuccessUrl()
-    {
-        return $this->successUrl;
+        return $this->label;
     }
 }

@@ -49,6 +49,7 @@ class SuccessListener extends ContainerAware
 
         // Process entries
         foreach ($form->getFields() as $field) {
+
             $entry = new Entry();
             $entry->setField($field);
             $entry->setValue($viewData['field_'.$field->getId()]);
@@ -84,7 +85,7 @@ class SuccessListener extends ContainerAware
             ->setSubject($form->getMailSubject())
             ->setTo(array($form->getContactEmail() => $form->getContactName()))
             ->setBody($this->container->get('templating')->render('NetvliesFormBundle:Mail:result.html.twig', array(
-                'content' => $form->getMailContent(),
+                'content' => $form->getMailBody(),
                 'entries' => $result->getEntries(),
             )), 'text/html');
 

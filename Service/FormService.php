@@ -32,7 +32,6 @@ class FormService extends ContainerAware
             foreach ($form->getFields() as $field) {
                 $type = $field->getType();
                 $options = array('label' => $field->getLabel());
-                // @todo create better extension mechanism and replace case statement
                 switch ($field->getType()) {
                     case 'select':
                         $type = 'choice';

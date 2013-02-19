@@ -21,6 +21,7 @@ class FormAdmin extends Admin
         $formMapper
             ->add('label')
             ->add('successUrl', null, array('label' => 'Success URL', 'required' => false))
+            ->add('successMessage', null, array('label' => 'Success message', 'required' => false))
             ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'mail_toggle')))
             ->add('contactName', null, array('label' => 'Contact name', 'attr' => array('class' => 'mail_related'), 'required' => false))
             ->add('contactEmail', null, array('label' => 'Contact email', 'attr' => array('class' => 'mail_related'), 'required' => false))
