@@ -3,6 +3,8 @@
 namespace Netvlies\Bundle\FormBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class FormService extends ContainerAware
 {
@@ -31,7 +33,13 @@ class FormService extends ContainerAware
 
             foreach ($form->getFields() as $field) {
                 $type = $field->getType();
-                $options = array('label' => $field->getLabel());
+                $options = array(
+                    'label' => $field->getLabel(),
+                    'constraints' => array()
+                );
+                if ($field->getRequired()) {
+                    $options['constraints'][] = new NotBlank();
+                }
                 switch ($field->getType()) {
                     case 'select':
                         $type = 'choice';
@@ -40,6 +48,9 @@ class FormService extends ContainerAware
                         foreach ($field->getOptions() as $option) {
                             $options['choices'][$option->getLabel()] = $option->getLabel();
                         }
+                        break;
+                    case 'email':
+                        $options['constraints'][] = new Email();
                         break;
                 }
                 $formBuilder->add('field_'.$field->getId(), $type, $options);

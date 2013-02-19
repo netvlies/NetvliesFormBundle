@@ -32,6 +32,8 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
 
     /**
      * Twig function that displays the form with the requested ID.
+     * If the form post was successful, the success message is shown
+     * by the Twig renderer.
      *
      * @param $id
      * @return mixed

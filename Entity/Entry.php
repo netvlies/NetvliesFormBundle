@@ -18,7 +18,7 @@ class Entry
     protected $id;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $value;
 
