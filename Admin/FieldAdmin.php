@@ -44,6 +44,10 @@ class FieldAdmin extends Admin
                         'radio' => 'Radio buttons'
                     ),
                     'attr' => array('class' => 'field_select_type')))
+                ->add('selectMultiple', 'checkbox', array(
+                    'required' => false,
+                    'attr' => array('class' => 'field_select_multiple')
+                ))
                 ->add('required', null, array('attr' => array('class' => 'field_required')))
                 ->add('default', null, array('label' => 'Default value', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',

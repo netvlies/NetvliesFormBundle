@@ -40,13 +40,21 @@ class FormService extends ContainerAware
                 if ($field->getRequired()) {
                     $options['constraints'][] = new NotBlank();
                 }
+                if ($field->getDefault()) {
+                    $options['data'] = $field->getDefault();
+                }
                 switch ($field->getType()) {
                     case 'select':
                         $type = 'choice';
                         $options['expanded'] = ($field->getSelectType() != 'dropdown');
+                        $options['multiple'] = $field->getSelectMultiple();
                         $options['choices'] = array();
                         foreach ($field->getOptions() as $option) {
                             $options['choices'][$option->getLabel()] = $option->getLabel();
+                        }
+                        $options['data'] = array();
+                        if ($field->getDefault()) {
+                            $options['data'][] = $field->getDefault();
                         }
                         break;
                     case 'email':

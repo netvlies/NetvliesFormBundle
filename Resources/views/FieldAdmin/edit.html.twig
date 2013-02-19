@@ -13,6 +13,12 @@
                 } else {
                     $('.field_select_type').parent().parent().hide();
                 }
+                // multiple select
+                if (this.value == 'select') {
+                    $('.field_select_multiple').parent().parent().show();
+                } else {
+                    $('.field_select_multiple').parent().parent().hide();
+                }
                 // default
                 if (this.value != 'checkbox') {
                     $('.field_default').parent().parent().show();

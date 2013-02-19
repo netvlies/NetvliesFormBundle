@@ -33,6 +33,11 @@ class Field
     protected $selectType;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $selectMultiple = false;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $required = false;
@@ -80,6 +85,18 @@ class Field
     public function getSelectType()
     {
         return $this->selectType;
+    }
+
+    public function setSelectMultiple($selectMultiple)
+    {
+        $this->selectMultiple = $selectMultiple;
+
+        return $this;
+    }
+
+    public function getSelectMultiple()
+    {
+        return $this->selectMultiple;
     }
 
     public function setId($id)
