@@ -7,6 +7,12 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.field_type').change(function() {
+                // select type
+                if (this.value == 'select') {
+                    $('.field_select_type').parent().parent().show();
+                } else {
+                    $('.field_select_type').parent().parent().hide();
+                }
                 // required
                 if (this.value != 'checkbox') {
                     $('.field_required').parent().parent().show();
@@ -20,7 +26,7 @@
                     $('.field_default').parent().parent().hide();
                 }
                 // options
-                if (this.value == 'radio' || this.value == 'dropdown') {
+                if (this.value == 'select') {
                     $('.sonata-ba-field-inline-table').parent().show();
                 } else {
                     $('.sonata-ba-field-inline-table').parent().hide();

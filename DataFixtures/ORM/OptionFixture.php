@@ -35,6 +35,6 @@ class OptionFixture extends AbstractFixture implements FixtureInterface, Ordered
      */
     public function getOrder()
     {
-        return 2;
+        return 1;
     }
 }

@@ -30,14 +30,20 @@ class FieldAdmin extends Admin
                     'email' => 'Email address',
                     'date' => 'Date',
                     'checkbox' => 'Checkbox',
-                    'radio' => 'Radio select',
-                    'dropdown' => 'Drop-down'
+                    'select' => 'Select'
                 ),
                 'attr' => array('class' => 'field_type')))
         ;
 
         if (!$editInline) {
             $formMapper
+                ->add('selectType', 'choice', array(
+                    'required' => true,
+                    'choices' => array(
+                        'dropdown' => 'Drop-down',
+                        'radio' => 'Radio buttons'
+                    ),
+                    'attr' => array('class' => 'field_select_type')))
                 ->add('required', null, array('attr' => array('class' => 'field_required')))
                 ->add('default', null, array('label' => 'Default value', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',

@@ -18,7 +18,8 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
         // Contact form fields
         $field = new Field();
         $field->setLabel('Salutation');
-        $field->setType('radio');
+        $field->setType('select');
+        $field->setSelectType('radio');
         $field->setRequired(true);
         $field->addOption($manager->merge($this->getReference('option_contact_mr')));
         $field->addOption($manager->merge($this->getReference('option_contact_mrs')));
@@ -81,6 +82,6 @@ class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedF
      */
     public function getOrder()
     {
-        return 3;
+        return 2;
     }
 }

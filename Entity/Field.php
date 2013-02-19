@@ -28,6 +28,11 @@ class Field
     protected $type;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $selectType;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     protected $required = false;
@@ -63,6 +68,18 @@ class Field
     public function getType()
     {
         return $this->type;
+    }
+
+    public function setSelectType($selectType)
+    {
+        $this->selectType = $selectType;
+
+        return $this;
+    }
+
+    public function getSelectType()
+    {
+        return $this->selectType;
     }
 
     public function setId($id)
