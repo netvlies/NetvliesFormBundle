@@ -29,6 +29,7 @@ class FieldAdmin extends Admin
         $editInline = isset($adminAttributes['edit']) && $adminAttributes['edit'] == 'inline';
 
         $formMapper
+            ->with('General')
             ->add('label')
             ->add('type', 'choice', array(
                 'required' => true,
@@ -80,6 +81,8 @@ class FieldAdmin extends Admin
                 ->add('position')
             ;
         }
+
+        $formMapper->end();
     }
 
     protected function configureListFields(ListMapper $listMapper)
