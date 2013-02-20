@@ -30,12 +30,18 @@ class Form
     protected $success = false;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $successAction;
+
+    /**
+     * @Assert\NotBlank(groups={"success_url"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $successUrl;
 
     /**
-     * @Assert\NotBlank(groups={"success"})
+     * @Assert\NotBlank(groups={"success_message"})
      * @ORM\Column(type="text", nullable=true)
      */
     protected $successMessage;
@@ -136,6 +142,18 @@ class Form
     public function getSuccess()
     {
         return $this->success;
+    }
+
+    public function setSuccessAction($successAction)
+    {
+        $this->successAction = $successAction;
+
+        return $this;
+    }
+
+    public function getSuccessAction()
+    {
+        return $this->successAction;
     }
 
     public function setSuccessUrl($successUrl)
@@ -329,8 +347,10 @@ class Form
         if ($this->sendMail) {
             $executionContext->getGraphWalker()->walkReference($this, 'contact', $executionContext->getPropertyPath(), true);
         }
-        if ($this->successUrl == '') {
-            $executionContext->getGraphWalker()->walkReference($this, 'success', $executionContext->getPropertyPath(), true);
+        if ($this->successAction == 'url') {
+            $executionContext->getGraphWalker()->walkReference($this, 'success_url', $executionContext->getPropertyPath(), true);
+        } else {
+            $executionContext->getGraphWalker()->walkReference($this, 'success_message', $executionContext->getPropertyPath(), true);
         }
     }
 

@@ -18,6 +18,7 @@ class FormFixture extends AbstractFixture implements FixtureInterface, OrderedFi
         // Contact form
         $form = new Form();
         $form->setLabel('Contact form');
+        $form->setSuccessAction('url');
         $form->addField($manager->merge($this->getReference('field_contact_salutation')));
         $form->addField($manager->merge($this->getReference('field_contact_name')));
         $form->addField($manager->merge($this->getReference('field_contact_email')));
@@ -27,6 +28,7 @@ class FormFixture extends AbstractFixture implements FixtureInterface, OrderedFi
         // Application form
         $form = new Form();
         $form->setLabel('Application form');
+        $form->setSuccessAction('url');
         $form->addField($manager->merge($this->getReference('field_application_name')));
         $form->addField($manager->merge($this->getReference('field_application_function')));
         $form->addField($manager->merge($this->getReference('field_application_motivation')));

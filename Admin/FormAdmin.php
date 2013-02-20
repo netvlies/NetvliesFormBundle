@@ -18,29 +18,45 @@ class FormAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('label')
-            ->add('successUrl', null, array('label' => 'Success URL', 'required' => false))
-            ->add('successMessage', null, array('label' => 'Success message', 'required' => false))
-            ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'mail_toggle')))
-            ->add('mailRecipientName', null, array('label' => 'Recipient name', 'attr' => array('class' => 'mail_related'), 'required' => true))
-            ->add('mailRecipientEmail', null, array('label' => 'Recipient email', 'attr' => array('class' => 'mail_related'), 'required' => true))
-            ->add('mailSubject', null, array('label' => 'Mail subject', 'attr' => array('class' => 'mail_related'), 'required' => true))
-            ->add('mailBody', null, array('label' => 'Mail body', 'attr' => array('class' => 'mail_related'), 'required' => true))
-            ->add('mailSenderName', null, array('label' => 'Sender name', 'attr' => array('class' => 'mail_related'), 'required' => false))
-            ->add('mailSenderEmail', null, array('label' => 'Sender email', 'attr' => array('class' => 'mail_related'), 'required' => false))
-            ->add('storeResults', null, array('label' => 'Store results'))
-            ->add('addCaptcha', null, array('label' => 'Add CAPTCHA'))
-            ->add('fields', 'sonata_type_collection',
-                array(
-                    'required' => false,
-                    'by_reference' => false,
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
+            ->with('General')
+                ->add('label')
+                ->add('successAction', 'choice', array(
+                    'required' => true,
+                    'choices' => array(
+                        'url' => 'Redirect',
+                        'message' => 'Message'
+                    ),
+                    'attr' => array('class' => 'form_success_action')))
+                ->add('successUrl', null, array('label' => 'Success URL', 'required' => true, 'attr' => array('class' => 'form_success_url')))
+                ->add('successMessage', null, array('label' => 'Success message', 'required' => true, 'attr' => array('class' => 'form_success_message')))
+            ->end()
+            ->with('Field management')
+                ->add('fields', 'sonata_type_collection',
+                    array(
+                        'required' => false,
+                        'by_reference' => false,
+                    ),
+                    array(
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'position',
+                    )
                 )
+                ->add('addCaptcha', null, array('label' => 'Add CAPTCHA')
             )
+            ->end()
+            ->with('Email settings')
+                ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'form_mail_toggle')))
+                ->add('mailRecipientName', null, array('label' => 'Recipient name', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailRecipientEmail', null, array('label' => 'Recipient email', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailSubject', null, array('label' => 'Mail subject', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailBody', null, array('label' => 'Mail body', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailSenderName', null, array('label' => 'Sender name', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderEmail', null, array('label' => 'Sender email', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+            ->end()
+            ->with('Result handling')
+                ->add('storeResults', null, array('label' => 'Store results'))
+            ->end()
         ;
     }
 

@@ -6,8 +6,17 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.mail_toggle').change(function() {
-                $('.mail_related').parent().parent().toggle(this.checked);
+            $('.form_success_action').change(function() {
+                if (this.value == 'url') {
+                    $('.form_success_url').parent().parent().show();
+                    $('.form_success_message').parent().parent().hide();
+                } else {
+                    $('.form_success_url').parent().parent().hide();
+                    $('.form_success_message').parent().parent().show();
+                }
+            }).change();
+            $('.form_mail_toggle').change(function() {
+                $('.form_mail_related').parent().parent().toggle(this.checked);
             }).change();
         })
     </script>
