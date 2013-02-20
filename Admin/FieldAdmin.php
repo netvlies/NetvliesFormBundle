@@ -46,7 +46,6 @@ class FieldAdmin extends Admin
         ;
 
         if (!$editInline) {
-
             $formMapper
                 ->add('selectType', 'choice', array(
                     'required' => true,
@@ -102,7 +101,9 @@ class FieldAdmin extends Admin
 
     public function postUpdate($field)
     {
-        $this->redirectToForm($field->getForm()->getId());
+        if ($this->getConfigurationPool()->getContainer()->get('request')->request->has('btn_update_and_list')) {
+            $this->redirectToForm($field->getForm()->getId());
+        }
     }
 
     public function postRemove($field)
