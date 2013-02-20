@@ -2,7 +2,6 @@
 namespace Netvlies\Bundle\FormBundle\Event;
 
 use Netvlies\Bundle\FormBundle\Entity\Form;
-
 use Symfony\Component\EventDispatcher\Event;
 
 class FormEvent extends Event

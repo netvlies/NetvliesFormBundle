@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fb_entry")
+ * @ORM\Table(name="netvlies_formbundle_entry")
  */
 class Entry
 {
@@ -32,68 +32,11 @@ class Entry
      */
     protected $result;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Set result
-     *
-     * @param  Result $result
-     * @return Entry
-     */
-    public function setResult(Result $result = null)
-    {
-        $this->result = $result;
-
-        return $this;
-    }
-
-    /**
-     * Get result
-     *
-     * @return Result
-     */
-    public function getResult()
-    {
-        return $this->result;
-    }
-
-    /**
-     * Set field
-     *
-     * @param  Field $field
-     * @return Entry
-     */
-    public function setField(Field $field = null)
-    {
-        $this->field = $field;
-
-        return $this;
-    }
-
-    /**
-     * Get field
-     *
-     * @return Field
-     */
-    public function getField()
-    {
-        return $this->field;
-    }
-
-    /**
-     * Set value
-     *
-     * @param  string $value
-     * @return Entry
-     */
     public function setValue($value)
     {
         $this->value = $value;
@@ -101,12 +44,36 @@ class Entry
         return $this;
     }
 
-    /**
-     * Get value
-     *
-     * @return string
-     */
     public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function setField(Field $field)
+    {
+        $this->field = $field;
+
+        return $this;
+    }
+
+    public function getField()
+    {
+        return $this->field;
+    }
+
+    public function setResult(Result $result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    public function __toString()
     {
         return $this->value;
     }

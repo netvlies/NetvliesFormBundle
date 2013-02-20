@@ -32,10 +32,12 @@ class FieldAdmin extends Admin
                     'checkbox' => 'Checkbox',
                     'select' => 'Select'
                 ),
-                'attr' => array('class' => 'field_type')))
+                'attr' => array('class' => 'field_type')
+            ))
         ;
 
         if (!$editInline) {
+
             $formMapper
                 ->add('selectType', 'choice', array(
                     'required' => true,
@@ -54,7 +56,7 @@ class FieldAdmin extends Admin
                     array(
                         'required' => false,
                         'by_reference' => false,
-                        'attr' => array('class' => 'field_options'), // looks like this doesn't work
+                        'attr' => array('class' => 'field_options'),
                     ),
                     array(
                         'edit' => 'inline',
@@ -72,19 +74,23 @@ class FieldAdmin extends Admin
         }
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper
-            ->add('label')
-        ;
-    }
-
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
             ->addIdentifier('label')
             ->add('type')
             ->add('position')
+//            ->add('custom', 'string', array(
+//                'label' => 'Settings',
+//                'template' => 'NetvliesFormBundle:FieldAdmin:list_custom.html.twig'
+//            ))
+        ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('label')
         ;
     }
 

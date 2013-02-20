@@ -8,14 +8,13 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 
 class FormService extends ContainerAware
 {
-    /**
-     * @var array
-     */
     protected $forms = array();
 
     /**
-     * Returns the form with the requested ID. When the form is requested for
-     * the first time,
+     * Builds the form with the requested ID. When a form is requested for the
+     * second time, the instance created earlier is returned to ensure only one
+     * form instance is used and form properties can be set and retrieved from
+     * all locations where the form is used.
      *
      * @param $id
      * @return mixed

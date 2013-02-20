@@ -10,6 +10,13 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SuccessListener extends ContainerAware
 {
+    /**
+     * Default handling for the form success event. This includes storage of
+     * the result, sending a confirmation mail and redirecting to the success
+     * URL, while respecting the form settings.
+     *
+     * @param FormEvent $event
+     */
     public function onFormSuccess(FormEvent $event)
     {
         $form = $event->getForm();
@@ -45,9 +52,7 @@ class SuccessListener extends ContainerAware
 
         $viewData = $form->getSf2Form()->getViewData();
 
-        // Process entries
         foreach ($form->getFields() as $field) {
-
             $entry = new Entry();
             $entry->setField($field);
             $entry->setValue($viewData['field_'.$field->getId()]);

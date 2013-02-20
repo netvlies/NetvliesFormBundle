@@ -12,7 +12,7 @@ class SubmitListener extends ContainerAware
     /**
      * Checks if a form post request was mad. If so, it validates the form input
      * and upon success dispatches the form success event, which can be used for
-     * further handling of the received data.
+     * further custom handling of the received data.
      *
      * @param $event
      */

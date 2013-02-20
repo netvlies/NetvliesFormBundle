@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Netvlies\Bundle\FormBundle\Entity\Form;
 
 class FormAdmin extends Admin
 {
@@ -58,6 +57,11 @@ class FormAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('results', $this->getRouterIdParameter().'/results');
+    }
+
+    public function getFormTheme()
+    {
+        return array('NetvliesFormBundle:FormAdmin:form_admin_fields.html.twig');
     }
 
     public function getTemplate($name)

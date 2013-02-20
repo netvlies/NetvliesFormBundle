@@ -2,11 +2,14 @@
 
 namespace Netvlies\Bundle\FormBundle\Entity;
 
+use Netvlies\Bundle\FormBundle\Entity\Forms;
+use Netvlies\Bundle\FormBundle\Entity\Option;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fb_field")
+ * @ORM\Table(name="netvlies_formbundle_field")
  */
 class Field
 {
@@ -63,6 +66,28 @@ class Field
      */
     protected $form;
 
+    public function __construct()
+    {
+        $this->options = new ArrayCollection();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setLabel($label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
     public function setType($type)
     {
         $this->type = $type;
@@ -99,68 +124,16 @@ class Field
         return $this->selectMultiple;
     }
 
-    public function setId($id)
+    public function setRequired($required)
     {
-        $this->id = $id;
+        $this->required = $required;
 
         return $this;
     }
 
-    public function getId()
+    public function getRequired()
     {
-        return $this->id;
-    }
-
-    public function setLabel($label)
-    {
-        $this->label = $label;
-
-        return $this;
-    }
-
-    public function getLabel()
-    {
-        return $this->label;
-    }
-
-    public function __toString()
-    {
-        return $this->label;
-    }
-
-    /**
-     * Set form
-     *
-     * @param  Form  $form
-     * @return Field
-     */
-    public function setForm(Form $form = null)
-    {
-        $this->form = $form;
-
-        return $this;
-    }
-
-    /**
-     * Get form
-     *
-     * @return Form
-     */
-    public function getForm()
-    {
-        return $this->form;
-    }
-
-    public function setOptions($options)
-    {
-        $this->options = $options;
-
-        return $this;
-    }
-
-    public function getOptions()
-    {
-        return $this->options;
+        return $this->required;
     }
 
     public function setDefault($default)
@@ -175,24 +148,25 @@ class Field
         return $this->default;
     }
 
-    public function setRequired($required)
+    public function addOption(Option $option)
     {
-        $this->required = $required;
+        $option->setField($this);
+
+        $this->options[] = $option;
 
         return $this;
     }
 
-    public function getRequired()
+    public function removeOption(Option $option)
     {
-        return $this->required;
+        $this->options->removeElement($option);
     }
 
-    /**
-     * Set position
-     *
-     * @param  integer $position
-     * @return Field
-     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
     public function setPosition($position)
     {
         $this->position = $position;
@@ -200,45 +174,25 @@ class Field
         return $this;
     }
 
-    /**
-     * Get position
-     *
-     * @return integer
-     */
     public function getPosition()
     {
         return $this->position;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->options = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
-    /**
-     * Add options
-     *
-     * @param  \Netvlies\Bundle\FormBundle\Entity\Option $options
-     * @return Field
-     */
-    public function addOption(\Netvlies\Bundle\FormBundle\Entity\Option $options)
+    public function setForm(Form $form)
     {
-        $options->setField($this);
-
-        $this->options[] = $options;
+        $this->form = $form;
 
         return $this;
     }
 
-    /**
-     * Remove options
-     *
-     * @param \Netvlies\Bundle\FormBundle\Entity\Option $options
-     */
-    public function removeOption(\Netvlies\Bundle\FormBundle\Entity\Option $options)
+    public function getForm()
     {
-        $this->options->removeElement($options);
+        return $this->form;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
     }
 }

@@ -9,6 +9,10 @@ use Symfony\Component\Config\FileLocator;
 
 class NetvliesFormExtension extends Extension
 {
+    /**
+     * @param array $configs
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

@@ -25,7 +25,7 @@ class AppKernel extends Kernel
 
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/form-bundle';
+        return sys_get_temp_dir().'/netvlies_formbundle_cache';
     }
 
     public function serialize()
