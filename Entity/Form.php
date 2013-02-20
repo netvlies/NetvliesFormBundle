@@ -49,14 +49,14 @@ class Form
      * @Assert\NotBlank(groups={"contact"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $contactName;
+    protected $mailRecipientName;
 
     /**
      * @Assert\Email(groups={"contact"})
      * @Assert\NotBlank(groups={"contact"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $contactEmail;
+    protected $mailRecipientEmail;
 
     /**
      * @Assert\NotBlank(groups={"contact"})
@@ -69,6 +69,17 @@ class Form
      * @ORM\Column(type="text", nullable=true)
      */
     protected $mailBody;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $mailSenderName;
+
+    /**
+     * @Assert\Email(groups={"contact"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $mailSenderEmail;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -163,28 +174,28 @@ class Form
         return $this->sendMail;
     }
 
-    public function setContactName($contactName)
+    public function setMailRecipientName($mailRecipientName)
     {
-        $this->contactName = $contactName;
+        $this->mailRecipientName = $mailRecipientName;
 
         return $this;
     }
 
-    public function getContactName()
+    public function getMailRecipientName()
     {
-        return $this->contactName;
+        return $this->mailRecipientName;
     }
 
-    public function setContactEmail($contactEmail)
+    public function setMailRecipientEmail($mailRecipientEmail)
     {
-        $this->contactEmail = $contactEmail;
+        $this->mailRecipientEmail = $mailRecipientEmail;
 
         return $this;
     }
 
-    public function getContactEmail()
+    public function getMailRecipientEmail()
     {
-        return $this->contactEmail;
+        return $this->mailRecipientEmail;
     }
 
     public function setMailSubject($mailSubject)
@@ -209,6 +220,30 @@ class Form
     public function getMailBody()
     {
         return $this->mailBody;
+    }
+
+    public function setMailSenderName($mailSenderName)
+    {
+        $this->mailSenderName = $mailSenderName;
+
+        return $this;
+    }
+
+    public function getMailSenderName()
+    {
+        return $this->mailSenderName;
+    }
+
+    public function setMailSenderEmail($mailSenderEmail)
+    {
+        $this->mailSenderEmail = $mailSenderEmail;
+
+        return $this;
+    }
+
+    public function getMailSenderEmail()
+    {
+        return $this->mailSenderEmail;
     }
 
     public function setStoreResults($storeResults)

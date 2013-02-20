@@ -86,11 +86,15 @@ class SuccessListener extends ContainerAware
     {
         $message = \Swift_Message::newInstance()
             ->setSubject($form->getMailSubject())
-            ->setTo(array($form->getContactEmail() => $form->getContactName()))
+            ->setTo(array($form->getMailRecipientEmail() => $form->getMailRecipientName()))
             ->setBody($this->container->get('templating')->render('NetvliesFormBundle:Mail:result.html.twig', array(
                 'content' => $form->getMailBody(),
                 'entries' => $result->getEntries(),
             )), 'text/html');
+
+        if ($form->getMailSenderName() != null && $form->getMailSenderEmail() != null) {
+            $message->setFrom(array($form->getMailSenderEmail() => $form->getMailSenderName()));
+        }
 
         $this->container->get('mailer')->send($message);
     }
