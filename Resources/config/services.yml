@@ -15,6 +15,8 @@ services:
           - null
           - Netvlies\Bundle\FormBundle\Entity\Field
           - null
+        calls:
+          - [ setFormAdmin, [@netvlies.form.form.admin] ]
         tags:
           - { name: sonata.admin, manager_type: orm, group: Forms, label: Fields, show_in_dashboard: false }
 

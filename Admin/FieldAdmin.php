@@ -6,14 +6,22 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class FieldAdmin extends Admin
 {
+    protected $formAdmin;
+
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_by' => 'position',
         '_sort_order' => 'ASC'
     );
+
+    public function setFormAdmin($formAdmin)
+    {
+        $this->formAdmin = $formAdmin;
+    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -78,12 +86,7 @@ class FieldAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('label')
-            ->add('type')
-            ->add('position')
-//            ->add('custom', 'string', array(
-//                'label' => 'Settings',
-//                'template' => 'NetvliesFormBundle:FieldAdmin:list_custom.html.twig'
-//            ))
+            ->add('form')
         ;
     }
 
@@ -92,6 +95,23 @@ class FieldAdmin extends Admin
         $datagridMapper
             ->add('label')
         ;
+    }
+
+    public function postUpdate($field)
+    {
+        $this->redirectToForm($field->getForm()->getId());
+    }
+
+    public function postRemove($field)
+    {
+        $this->redirectToForm($field->getForm()->getId());
+    }
+
+    protected function redirectToForm($formId)
+    {
+        $redirectUrl = $this->formAdmin->generateUrl('edit', array('id' => $formId));
+        $response = new RedirectResponse($redirectUrl);
+        $response->send();
     }
 
     public function getTemplate($name)
