@@ -1,0 +1,61 @@
+admin:
+    label: Formulieren
+    form:
+        label: Formulieren
+        section:
+            general: Algemeen
+            fields: Beheer velden
+            mail: E-mailinstellingen
+            results: Opslag gegevens
+        field:
+            name:
+                label: Naam
+                successaction: Actie na succes
+                successurl: URL
+                successmessage: Bericht
+                fields: Velden
+                captcha: Toon CAPTCHA
+                sendmail: Stuur een e-mail
+                mailrecipientname: Naam ontvanger
+                mailrecipientemail: E-mailadres ontvanger
+                mailsubject: Onderwerp e-mail
+                mailbody: Introtekst e-mail
+                mailsendername: Naam afzender
+                mailsenderemail: E-mailadres afzender
+                results: Bewaar gegevens
+            successaction:
+                option:
+                    redirect: Redirect naar onderstaande URL
+                    message: Toon onderstaand bericht
+    field:
+        label: Velden
+        section:
+            general: Algemeen
+        field:
+            name:
+                label: Naam
+                type: Type
+                selecttype: Selectietype
+                selectmultiple: Meerdere selecteren
+                required: Verplicht
+                default: Standaardwaarde
+                options: Opties
+                position: Positie
+                form: Formulier
+            type:
+                option:
+                    text: Tekst (één regel)
+                    textarea: Tekstblok
+                    email: E-mailadres
+                    date: Datum
+                    checkbox: Checkbox
+                    select: Selectie
+            selecttype:
+                option:
+                    dropdown: Drop-down
+                    radio: Radio buttons
+    option:
+        label: Opties
+        field:
+            name:
+                position: Positie

@@ -14,6 +14,9 @@ use Symfony\Component\Validator\ExecutionContext;
  */
 class Form
 {
+    const SUCCESS_ACTION_REDIRECT = 'redirect';
+    const SUCCESS_ACTION_MESSAGE = 'message';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -71,7 +74,6 @@ class Form
     protected $mailSubject;
 
     /**
-     * @Assert\NotBlank(groups={"contact"})
      * @ORM\Column(type="text", nullable=true)
      */
     protected $mailBody;
@@ -352,6 +354,14 @@ class Form
         } else {
             $executionContext->getGraphWalker()->walkReference($this, 'success_message', $executionContext->getPropertyPath(), true);
         }
+    }
+
+    public static function getSuccessActions()
+    {
+        return array(
+            self::SUCCESS_ACTION_REDIRECT => 'admin.form.field.successaction.option.redirect',
+            self::SUCCESS_ACTION_MESSAGE => 'admin.form.field.successaction.option.message'
+        );
     }
 
     public function __toString()

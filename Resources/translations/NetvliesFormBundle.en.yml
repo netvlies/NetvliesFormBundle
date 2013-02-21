@@ -1,0 +1,61 @@
+admin:
+    label: Forms
+    form:
+        label: Forms
+        section:
+            general: General
+            fields: Manage fields
+            mail: Email settings
+            results: Storage
+        field:
+            name:
+                label: Name
+                successaction: Success action
+                successurl: URL
+                successmessage: Message
+                fields: Fields
+                captcha: Show CAPTCHA
+                sendmail: Send an email
+                mailrecipientname: Recipient name
+                mailrecipientemail: Recipient email
+                mailsubject: Mail subject
+                mailbody: Mail intro
+                mailsendername: Sender name
+                mailsenderemail: Sender email
+                results: Store data
+            successaction:
+                option:
+                    redirect: Redirect to the following URL
+                    message: Show the following message
+    field:
+        label: Fields
+        section:
+            general: General
+        field:
+            name:
+                label: Name
+                type: Type
+                selecttype: Select type
+                selectmultiple: Multiple select
+                required: Required
+                default: Default value
+                options: Options
+                position: Position
+                form: Form
+            type:
+                option:
+                    text: Text (single line)
+                    textarea: Textarea
+                    email: Email address
+                    date: Date
+                    checkbox: Checkbox
+                    select: Select
+            selecttype:
+                option:
+                    dropdown: Drop-down
+                    radio: Radio buttons
+    option:
+        label: Options
+        field:
+            name:
+                position: Position

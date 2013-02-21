@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Field
 {
+    const TYPE_TEXT = 'text';
+    const TYPE_TEXTAREA = 'textarea';
+    const TYPE_EMAIL = 'email';
+    const TYPE_DATE = 'date';
+    const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_SELECT = 'select';
+
+    const SELECT_TYPE_DROPDOWN = 'dropdown';
+    const SELECT_TYPE_RADIO = 'radio';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -189,6 +199,26 @@ class Field
     public function getForm()
     {
         return $this->form;
+    }
+
+    public static function getTypes()
+    {
+        return array(
+            self::TYPE_TEXT => 'admin.field.field.type.option.text',
+            self::TYPE_TEXTAREA => 'admin.field.field.type.option.textarea',
+            self::TYPE_EMAIL => 'admin.field.field.type.option.email',
+            self::TYPE_DATE => 'admin.field.field.type.option.date',
+            self::TYPE_CHECKBOX => 'admin.field.field.type.option.checkbox',
+            self::TYPE_SELECT => 'admin.field.field.type.option.select'
+        );
+    }
+
+    public static function getSelectTypes()
+    {
+        return array(
+            self::SELECT_TYPE_DROPDOWN => 'admin.field.field.selecttype.option.dropdown',
+            self::SELECT_TYPE_RADIO => 'admin.field.field.selecttype.option.radio'
+        );
     }
 
     public function __toString()

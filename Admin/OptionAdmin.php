@@ -9,6 +9,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class OptionAdmin extends Admin
 {
+    protected $translationDomain = 'NetvliesFormBundle';
+
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_by' => 'label',
@@ -26,7 +28,7 @@ class OptionAdmin extends Admin
 
         if ($editInline) {
             $formMapper
-                ->add('position')
+                ->add('position', null, array('label' => 'admin.option.field.name.position'))
             ;
         }
     }

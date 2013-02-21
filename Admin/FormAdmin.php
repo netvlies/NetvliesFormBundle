@@ -2,6 +2,7 @@
 
 namespace Netvlies\Bundle\FormBundle\Admin;
 
+use Netvlies\Bundle\FormBundle\Entity\Form;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -9,6 +10,8 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class FormAdmin extends Admin
 {
+    protected $translationDomain = 'NetvliesFormBundle';
+
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_by' => 'label',
@@ -18,21 +21,21 @@ class FormAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
-                ->add('label')
-                ->add('successAction', 'choice', array(
+            ->with('admin.form.section.general')
+                ->add('label', null, array('label' => 'admin.form.field.name.label'))
+                ->add('successAction', 'sonata_type_translatable_choice', array(
+                    'label' => 'admin.form.field.name.successaction',
                     'required' => true,
-                    'choices' => array(
-                        'url' => 'Redirect',
-                        'message' => 'Message'
-                    ),
+                    'choices' => Form::getSuccessActions(),
+                    'catalogue' => $this->translationDomain,
                     'attr' => array('class' => 'form_success_action')))
-                ->add('successUrl', null, array('label' => 'Success URL', 'required' => true, 'attr' => array('class' => 'form_success_url')))
-                ->add('successMessage', null, array('label' => 'Success message', 'required' => true, 'attr' => array('class' => 'form_success_message')))
+                ->add('successUrl', null, array('label' => 'admin.form.field.name.successurl', 'required' => true, 'attr' => array('class' => 'form_success_url')))
+                ->add('successMessage', null, array('label' => 'admin.form.field.name.successmessage', 'required' => true, 'attr' => array('class' => 'form_success_message')))
             ->end()
-            ->with('Field management')
+            ->with('admin.form.section.fields')
                 ->add('fields', 'sonata_type_collection',
                     array(
+                        'label' => 'admin.form.field.name.fields',
                         'required' => false,
                         'by_reference' => false,
                     ),
@@ -42,20 +45,20 @@ class FormAdmin extends Admin
                         'sortable' => 'position',
                     )
                 )
-                ->add('addCaptcha', null, array('label' => 'Add CAPTCHA')
+                ->add('addCaptcha', null, array('label' => 'admin.form.field.name.captcha')
             )
             ->end()
-            ->with('Email settings')
-                ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'form_mail_toggle')))
-                ->add('mailRecipientName', null, array('label' => 'Recipient name', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailRecipientEmail', null, array('label' => 'Recipient email', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailSubject', null, array('label' => 'Mail subject', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailBody', null, array('label' => 'Mail body', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailSenderName', null, array('label' => 'Sender name', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
-                ->add('mailSenderEmail', null, array('label' => 'Sender email', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+            ->with('admin.form.section.mail')
+                ->add('sendMail', null, array('label' => 'admin.form.field.name.sendmail', 'attr' => array('class' => 'form_mail_toggle')))
+                ->add('mailRecipientName', null, array('label' => 'admin.form.field.name.mailrecipientname', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailRecipientEmail', null, array('label' => 'admin.form.field.name.mailrecipientemail', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailSubject', null, array('label' => 'admin.form.field.name.mailsubject', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailBody', null, array('label' => 'admin.form.field.name.mailbody', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderName', null, array('label' => 'admin.form.field.name.mailsendername', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderEmail', null, array('label' => 'admin.form.field.name.mailsenderemail', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
             ->end()
-            ->with('Result handling')
-                ->add('storeResults', null, array('label' => 'Store results'))
+            ->with('admin.form.section.results')
+                ->add('storeResults', null, array('label' => 'admin.form.field.name.results'))
             ->end()
         ;
     }

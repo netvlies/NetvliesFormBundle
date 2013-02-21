@@ -2,6 +2,7 @@
 
 namespace Netvlies\Bundle\FormBundle\Admin;
 
+use Netvlies\Bundle\FormBundle\Entity\Field;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -11,6 +12,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class FieldAdmin extends Admin
 {
     protected $formAdmin;
+
+    protected $translationDomain = 'NetvliesFormBundle';
 
     protected $datagridValues = array(
         '_page'       => 1,
@@ -29,39 +32,36 @@ class FieldAdmin extends Admin
         $editInline = isset($adminAttributes['edit']) && $adminAttributes['edit'] == 'inline';
 
         $formMapper
-            ->with('General')
-            ->add('label')
-            ->add('type', 'choice', array(
-                'required' => true,
-                'choices' => array(
-                    'text' => 'Text (single line)',
-                    'textarea' => 'Textarea',
-                    'email' => 'Email address',
-                    'date' => 'Date',
-                    'checkbox' => 'Checkbox',
-                    'select' => 'Select'
-                ),
-                'attr' => array('class' => 'field_type')
-            ))
+            ->with('admin.field.section.general')
+                ->add('label', null, array('label' => 'admin.field.field.name.label'))
+                ->add('type', 'sonata_type_translatable_choice', array(
+                    'label' => 'admin.field.field.name.type',
+                    'required' => true,
+                    'choices' => Field::getTypes(),
+                    'catalogue' => $this->translationDomain,
+                    'attr' => array('class' => 'field_type')
+                )
+            )
         ;
 
         if (!$editInline) {
             $formMapper
-                ->add('selectType', 'choice', array(
+                ->add('selectType', 'sonata_type_translatable_choice', array(
+                    'label' => 'admin.field.field.name.selecttype',
                     'required' => true,
-                    'choices' => array(
-                        'dropdown' => 'Drop-down',
-                        'radio' => 'Radio buttons'
-                    ),
+                    'choices' => Field::getSelectTypes(),
+                    'catalogue' => $this->translationDomain,
                     'attr' => array('class' => 'field_select_type')))
                 ->add('selectMultiple', 'checkbox', array(
+                    'label' => 'admin.field.field.name.selectmultiple',
                     'required' => false,
                     'attr' => array('class' => 'field_select_multiple')
                 ))
-                ->add('required', null, array('attr' => array('class' => 'field_required')))
-                ->add('default', null, array('label' => 'Default value', 'attr' => array('class' => 'field_default')))
+                ->add('required', null, array('label' => 'admin.field.field.name.required', 'attr' => array('class' => 'field_required')))
+                ->add('default', null, array('label' => 'admin.field.field.name.default', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',
                     array(
+                        'label' => 'admin.field.field.name.options',
                         'required' => false,
                         'by_reference' => false,
                         'attr' => array('class' => 'field_options'),
@@ -77,7 +77,7 @@ class FieldAdmin extends Admin
 
         if ($editInline) {
             $formMapper
-                ->add('position')
+                ->add('position', null, array('label' => 'admin.field.field.name.position'))
             ;
         }
 
@@ -87,8 +87,8 @@ class FieldAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('label')
-            ->add('form')
+            ->addIdentifier('label', null, array('label' => 'admin.field.field.name.label'))
+            ->add('form', null, array('label' => 'admin.field.field.name.form'))
         ;
     }
 
