@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="netvlies_formbundle_field")
+ * @ORM\Table(name="netvlies_form_field")
  */
 class Field
 {

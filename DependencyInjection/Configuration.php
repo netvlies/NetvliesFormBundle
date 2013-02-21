@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('templates')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('form')->defaultValue(null)->end()
+                        ->scalarNode('form')->defaultValue('NetvliesFormBundle:Twig:form_show.html.twig')->end()
                         ->scalarNode('fields')->defaultValue(null)->end()
                     ->end()
                 ->end()

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="netvlies_formbundle_option")
+ * @ORM\Table(name="netvlies_form_option")
  */
 class Option
 {

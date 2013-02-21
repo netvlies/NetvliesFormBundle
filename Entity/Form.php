@@ -10,7 +10,7 @@ use Symfony\Component\Validator\ExecutionContext;
 /**
  * @Assert\Callback(methods={"validateContact"})
  * @ORM\Entity
- * @ORM\Table(name="netvlies_formbundle_form")
+ * @ORM\Table(name="netvlies_form_form")
  */
 class Form
 {

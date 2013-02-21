@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="netvlies_formbundle_result")
+ * @ORM\Table(name="netvlies_form_result")
  */
 class Result
 {
