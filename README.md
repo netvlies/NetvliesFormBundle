@@ -62,18 +62,23 @@ public function registerBundles()
 }
 ```
 
+## Configuration
+
+By default the bundle uses default Symfony form rendering and provides configuration to customize the templates used.
+
+```yaml
+netvlies_form:
+    templates:
+        form: MyBundle:Form:form.html.twig
+        fields: MyBundle:Form:fields.html.twig
+```
+
+Read the documentation on [`form customization`](http://symfony.com/doc/current/cookbook/form/form_customization.html)
+for more information on tweaking the form layout for your project.
+
 ## Routing
 
-Add the following section to your routing to be able to reach the controller.
-
-``` yml
-// app/config/routing.yml
-
-NetvliesFormBundle:
-    resource:   "@NetvliesFormBundle/Controller/"
-    type:       annotation
-    prefix:     /form
-```
+This bundle requires no specific routing configuration.
 
 ## Usage
 
@@ -96,12 +101,6 @@ Or directly from the view.
 {{ show_form(formId) }}
 
 ```
-
-## Form HTML
-
-This bundle currently only supports the default form theme which is used by your main project. Read the documentation on
-[`form customization`](http://symfony.com/doc/current/cookbook/form/form_customization.html) for more information on
-tweaking the form layout for your project.
 
 ## Form submit and success handling
 
