@@ -349,7 +349,7 @@ class Form
         if ($this->sendMail) {
             $executionContext->getGraphWalker()->walkReference($this, 'contact', $executionContext->getPropertyPath(), true);
         }
-        if ($this->successAction == 'url') {
+        if ($this->successAction == 'redirect') {
             $executionContext->getGraphWalker()->walkReference($this, 'success_url', $executionContext->getPropertyPath(), true);
         } else {
             $executionContext->getGraphWalker()->walkReference($this, 'success_message', $executionContext->getPropertyPath(), true);

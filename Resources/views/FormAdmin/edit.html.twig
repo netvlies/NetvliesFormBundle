@@ -6,6 +6,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            $('form').attr('novalidate', 'novalidate');
             $('.form_success_action').change(function() {
                 if (this.value == 'redirect') {
                     $('.form_success_url').parent().parent().show();

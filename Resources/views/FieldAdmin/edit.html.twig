@@ -6,6 +6,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            $('form').attr('novalidate', 'novalidate');
             $('.field_type').change(function() {
                 // select type
                 if (this.value == 'select') {
