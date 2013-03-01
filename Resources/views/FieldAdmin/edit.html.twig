@@ -7,27 +7,27 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('form').attr('novalidate', 'novalidate');
-            $('.field_type').change(function() {
+            $('.field_type, .field_select_type').change(function() {
                 // select type
-                if (this.value == 'select') {
+                if ($('.field_type').val() == 'select') {
                     $('.field_select_type').parent().parent().show();
                 } else {
                     $('.field_select_type').parent().parent().hide();
                 }
                 // multiple select
-                if (this.value == 'select') {
+                if ($('.field_type').val() == 'select' && $('.field_select_type').val() != 'radio') {
                     $('.field_select_multiple').parent().parent().show();
                 } else {
                     $('.field_select_multiple').parent().parent().hide();
                 }
                 // default
-                if (this.value != 'checkbox') {
+                if ($('.field_type').val() != 'checkbox') {
                     $('.field_default').parent().parent().show();
                 } else {
                     $('.field_default').parent().parent().hide();
                 }
                 // options
-                if (this.value == 'select') {
+                if ($('.field_type').val() == 'select') {
                     $('.sonata-ba-field-inline-table').parent().show();
                 } else {
                     $('.sonata-ba-field-inline-table').parent().hide();
