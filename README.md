@@ -139,9 +139,9 @@ netvlies.listener.form.success:
 
 The bundle makes use of the Symfony validation messages and provides translation files for bundle specific captions. All
 of these translations can be overridden by creating your own translation files and putting them in one of the directories
-specified in [`Symfony documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
+specified in the [`translations documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
 
-For instance, to use your own messages application, you could create the following translations file.
+For instance, to customize the messages for your application, you could create the following translations file.
 
 ``` yml
 // app/Resources/translations/validators.nl.yml
