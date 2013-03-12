@@ -137,7 +137,7 @@ netvlies.listener.form.success:
 
 ### Translations
 
-The bundle makes use of the Symfony validation messages and provides translation files for bundle pecific captions. All
+The bundle makes use of the Symfony validation messages and provides translation files for bundle specific captions. All
 of these translations can be overridden by creating your own translation files and putting them in one of the directories
 specified in [`Symfony documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
 
