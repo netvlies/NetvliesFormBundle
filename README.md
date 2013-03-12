@@ -134,3 +134,19 @@ netvlies.listener.form.success:
     tags:
       - { name: kernel.event_listener, event: form.success }
 ```
+
+### Translations
+
+The bundle makes use of the Symfony validation messages and provides translation files for bundle pecific captions. All
+of these translations can be overridden by creating your own translation files and putting them in one of the directories
+specified in [`Symfony documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
+
+For instance, to use your own messages application, you could create the following translations file.
+
+``` yml
+// app/Resources/translations/validators.nl.yml
+
+This value should not be blank.: Dit veld mag niet leeg zijn.
+This value is not a valid email address.: Dit is geen geldig e-mailadres.
+
+```
