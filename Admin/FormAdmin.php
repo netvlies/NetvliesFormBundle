@@ -39,11 +39,10 @@ class FormAdmin extends Admin
                     array(
                         'edit' => 'inline',
                         'inline' => 'table',
-                        'sortable' => 'position',
+//                        'sortable' => 'position',
                     )
                 )
-                ->add('addCaptcha', null, array('label' => 'Add CAPTCHA')
-            )
+                ->add('addCaptcha', null, array('label' => 'Add CAPTCHA'))
             ->end()
             ->with('Email settings')
                 ->add('sendMail', null, array('label' => 'Send mail', 'attr' => array('class' => 'form_mail_toggle')))
@@ -82,7 +81,7 @@ class FormAdmin extends Admin
         return array('NetvliesFormBundle:FormAdmin:form_admin_fields.html.twig');
     }
 
-    public function getTemplate($name)
+    public function getTemplatezz($name)
     {
         switch ($name) {
             case 'edit':
