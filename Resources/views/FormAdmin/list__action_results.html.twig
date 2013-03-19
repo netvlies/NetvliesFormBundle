@@ -1,9 +1,10 @@
 {%  if object.storeResults and object.results|length > 0 %}
-
+<li>
     <a href="{{ path("admin_bundle_form_form_results", { "id": object.id }) }}">Results ({{ object.results|length }})</a>
-
+</li>
 {% else %}
-
+<li>
     No results
+</li>
 
 {% endif %}

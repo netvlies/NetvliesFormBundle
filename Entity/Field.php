@@ -2,7 +2,7 @@
 
 namespace Netvlies\Bundle\FormBundle\Entity;
 
-use Netvlies\Bundle\FormBundle\Entity\Forms;
+use Netvlies\Bundle\FormBundle\Entity\Form;
 use Netvlies\Bundle\FormBundle\Entity\Option;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -76,16 +76,26 @@ class Field
      */
     protected $form;
 
+    /**
+     *
+     */
     public function __construct()
     {
         $this->options = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @param $label
+     * @return Field
+     */
     public function setLabel($label)
     {
         $this->label = $label;
@@ -93,11 +103,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getLabel()
     {
         return $this->label;
     }
 
+    /**
+     * @param $type
+     * @return Field
+     */
     public function setType($type)
     {
         $this->type = $type;
@@ -105,11 +122,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * @param $selectType
+     * @return Field
+     */
     public function setSelectType($selectType)
     {
         $this->selectType = $selectType;
@@ -117,11 +141,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSelectType()
     {
         return $this->selectType;
     }
 
+    /**
+     * @param $selectMultiple
+     * @return Field
+     */
     public function setSelectMultiple($selectMultiple)
     {
         $this->selectMultiple = $selectMultiple;
@@ -129,11 +160,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getSelectMultiple()
     {
         return $this->selectMultiple;
     }
 
+    /**
+     * @param $required
+     * @return Field
+     */
     public function setRequired($required)
     {
         $this->required = $required;
@@ -141,11 +179,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getRequired()
     {
         return $this->required;
     }
 
+    /**
+     * @param $default
+     * @return Field
+     */
     public function setDefault($default)
     {
         $this->default = $default;
@@ -153,11 +198,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getDefault()
     {
         return $this->default;
     }
 
+    /**
+     * @param Option $option
+     * @return Field
+     */
     public function addOption(Option $option)
     {
         $option->setField($this);
@@ -167,16 +219,39 @@ class Field
         return $this;
     }
 
+    /**
+     * @param Option $option
+     * @return Field
+     */
+    public function addOptions(Option $option)
+    {
+        $option->setField($this);
+
+        $this->options[] = $option;
+
+        return $this;
+    }
+
+    /**
+     * @param Option $option
+     */
     public function removeOption(Option $option)
     {
         $this->options->removeElement($option);
     }
 
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
     public function getOptions()
     {
         return $this->options;
     }
 
+    /**
+     * @param $position
+     * @return Field
+     */
     public function setPosition($position)
     {
         $this->position = $position;
@@ -184,11 +259,18 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPosition()
     {
         return $this->position;
     }
 
+    /**
+     * @param Form $form
+     * @return Field
+     */
     public function setForm(Form $form)
     {
         $this->form = $form;
@@ -196,6 +278,9 @@ class Field
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getForm()
     {
         return $this->form;
@@ -221,6 +306,9 @@ class Field
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->label;

@@ -84,7 +84,7 @@ class FormAdmin extends Admin
         return array('NetvliesFormBundle:FormAdmin:form_admin_fields.html.twig');
     }
 
-    public function getTemplatezz($name)
+    public function getTemplate($name)
     {
         switch ($name) {
             case 'edit':

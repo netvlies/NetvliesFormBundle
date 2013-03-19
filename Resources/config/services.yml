@@ -6,8 +6,10 @@ services:
             - null
             - Netvlies\Bundle\FormBundle\Entity\Form
             - NetvliesFormBundle:FormAdmin
+          calls:
+            - [ setTranslationDomain, [ NetvliesOmsBundle ] ]
           tags:
-            - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.form.label, label_catalogue: NetvliesFormBundle }
+            - { name: sonata.admin, manager_type: orm, group: Formulieren, label: Formulieren }
 
     netvlies.admin.form.field:
         class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
@@ -16,9 +18,10 @@ services:
           - Netvlies\Bundle\FormBundle\Entity\Field
           - null
         calls:
+          - [ setTranslationDomain, [ NetvliesOmsBundle ] ]
           - [ setFormAdmin, [@netvlies.form.form.admin] ]
         tags:
-          - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.field.label, show_in_dashboard: false, label_catalogue: NetvliesFormBundle }
+          - { name: sonata.admin, manager_type: orm, group: Formulieren, label: Velden, show_in_dashboard: false }
 
     netvlies.form.option.admin:
         class: Netvlies\Bundle\FormBundle\Admin\OptionAdmin
@@ -26,8 +29,10 @@ services:
           - null
           - Netvlies\Bundle\FormBundle\Entity\Option
           - null
+        calls:
+          - [ setTranslationDomain, [ NetvliesOmsBundle ] ]
         tags:
-          - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.option.label, show_in_dashboard: false, label_catalogue: NetvliesFormBundle }
+          - { name: sonata.admin, manager_type: orm, group: Formulieren, label: Opties, show_in_dashboard: false, }
 
     netvlies.form:
         class: Netvlies\Bundle\FormBundle\Service\FormService

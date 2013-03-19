@@ -117,11 +117,18 @@ class Form
         $this->fields = new ArrayCollection();
     }
 
+    /**
+     * @return mixed
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @param $label
+     * @return Form
+     */
     public function setLabel($label)
     {
         $this->label = $label;
@@ -129,11 +136,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getLabel()
     {
         return $this->label;
     }
 
+    /**
+     * @param $success
+     * @return Form
+     */
     public function setSuccess($success)
     {
         $this->success = $success;
@@ -141,11 +155,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getSuccess()
     {
         return $this->success;
     }
 
+    /**
+     * @param $successAction
+     * @return Form
+     */
     public function setSuccessAction($successAction)
     {
         $this->successAction = $successAction;
@@ -153,11 +174,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSuccessAction()
     {
         return $this->successAction;
     }
 
+    /**
+     * @param $successUrl
+     * @return Form
+     */
     public function setSuccessUrl($successUrl)
     {
         $this->successUrl = $successUrl;
@@ -165,11 +193,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSuccessUrl()
     {
         return $this->successUrl;
     }
 
+    /**
+     * @param $successMessage
+     * @return Form
+     */
     public function setSuccessMessage($successMessage)
     {
         $this->successMessage = $successMessage;
@@ -177,11 +212,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSuccessMessage()
     {
         return $this->successMessage;
     }
 
+    /**
+     * @param $sendMail
+     * @return Form
+     */
     public function setSendMail($sendMail)
     {
         $this->sendMail = $sendMail;
@@ -189,11 +231,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getSendMail()
     {
         return $this->sendMail;
     }
 
+    /**
+     * @param $mailRecipientName
+     * @return Form
+     */
     public function setMailRecipientName($mailRecipientName)
     {
         $this->mailRecipientName = $mailRecipientName;
@@ -201,11 +250,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailRecipientName()
     {
         return $this->mailRecipientName;
     }
 
+    /**
+     * @param $mailRecipientEmail
+     * @return Form
+     */
     public function setMailRecipientEmail($mailRecipientEmail)
     {
         $this->mailRecipientEmail = $mailRecipientEmail;
@@ -213,11 +269,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailRecipientEmail()
     {
         return $this->mailRecipientEmail;
     }
 
+    /**
+     * @param $mailSubject
+     * @return Form
+     */
     public function setMailSubject($mailSubject)
     {
         $this->mailSubject = $mailSubject;
@@ -225,11 +288,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailSubject()
     {
         return $this->mailSubject;
     }
 
+    /**
+     * @param $mailBody
+     * @return Form
+     */
     public function setMailBody($mailBody)
     {
         $this->mailBody = $mailBody;
@@ -237,11 +307,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailBody()
     {
         return $this->mailBody;
     }
 
+    /**
+     * @param $mailSenderName
+     * @return Form
+     */
     public function setMailSenderName($mailSenderName)
     {
         $this->mailSenderName = $mailSenderName;
@@ -249,11 +326,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailSenderName()
     {
         return $this->mailSenderName;
     }
 
+    /**
+     * @param $mailSenderEmail
+     * @return Form
+     */
     public function setMailSenderEmail($mailSenderEmail)
     {
         $this->mailSenderEmail = $mailSenderEmail;
@@ -261,11 +345,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMailSenderEmail()
     {
         return $this->mailSenderEmail;
     }
 
+    /**
+     * @param $storeResults
+     * @return Form
+     */
     public function setStoreResults($storeResults)
     {
         $this->storeResults = $storeResults;
@@ -273,11 +364,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getStoreResults()
     {
         return $this->storeResults;
     }
 
+    /**
+     * @param $addCaptcha
+     * @return Form
+     */
     public function setAddCaptcha($addCaptcha)
     {
         $this->addCaptcha = $addCaptcha;
@@ -285,11 +383,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function getAddCaptcha()
     {
         return $this->addCaptcha;
     }
 
+    /**
+     * @param Field $field
+     * @return Form
+     */
     public function addField(Field $field)
     {
         $field->setForm($this);
@@ -299,6 +404,23 @@ class Form
         return $this;
     }
 
+    /**
+     * @param Field $field
+     * @return Form
+     */
+    public function addFields(Field $field)
+    {
+        $field->setForm($this);
+
+        $this->fields[] = $field;
+
+        return $this;
+    }
+
+    /**
+     * @param Field $field
+     * @return Form
+     */
     public function removeField(Field $field)
     {
         $this->fields->removeElement($field);
@@ -306,11 +428,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
     public function getFields()
     {
         return $this->fields;
     }
 
+    /**
+     * @param $sf2Form
+     * @return Form
+     */
     public function setSf2Form($sf2Form)
     {
         $this->sf2Form = $sf2Form;
@@ -318,11 +447,18 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSf2Form()
     {
         return $this->sf2Form;
     }
 
+    /**
+     * @param Result $result
+     * @return Form
+     */
     public function addResult(Result $result)
     {
         $result->setForm($this);
@@ -332,6 +468,10 @@ class Form
         return $this;
     }
 
+    /**
+     * @param Result $result
+     * @return Form
+     */
     public function removeResult(Result $result)
     {
         $this->results->removeElement($result);
@@ -339,11 +479,17 @@ class Form
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getResults()
     {
         return $this->results;
     }
 
+    /**
+     * @param \Symfony\Component\Validator\ExecutionContext $executionContext
+     */
     public function validateContact(ExecutionContext $executionContext)
     {
         if ($this->sendMail) {
@@ -364,6 +510,9 @@ class Form
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->label;

@@ -47,11 +47,14 @@ class FieldAdmin extends Admin
         if (!$editInline) {
             $formMapper
                 ->add('selectType', 'sonata_type_translatable_choice', array(
-                    'label' => 'admin.field.field.name.selecttype',
-                    'required' => true,
-                    'choices' => Field::getSelectTypes(),
-                    'catalogue' => $this->translationDomain,
-                    'attr' => array('class' => 'field_select_type')))
+                        'label' => 'admin.field.field.name.selecttype',
+                        'required' => true,
+                        'choices' => Field::getSelectTypes(),
+                        'catalogue' => $this->translationDomain,
+                        'attr' => array(
+                                'class' => 'field_select_type'
+                        )
+                    ))
                 ->add('selectMultiple', 'checkbox', array(
                     'label' => 'admin.field.field.name.selectmultiple',
                     'required' => false,
@@ -69,7 +72,7 @@ class FieldAdmin extends Admin
                     array(
                         'edit' => 'inline',
                         'inline' => 'table',
-                        'sortable' => 'position',
+//                        'sortable' => 'position',
                     )
                 )
             ;
@@ -116,6 +119,11 @@ class FieldAdmin extends Admin
         $redirectUrl = $this->formAdmin->generateUrl('edit', array('id' => $formId));
         $response = new RedirectResponse($redirectUrl);
         $response->send();
+    }
+
+    public function getFormTheme()
+    {
+        return array('NetvliesFormBundle:FormAdmin:form_admin_fields.html.twig');
     }
 
     public function getTemplate($name)
