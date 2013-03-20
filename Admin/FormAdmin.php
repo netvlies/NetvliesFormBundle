@@ -21,21 +21,21 @@ class FormAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('admin.form.section.general')
-                ->add('label', null, array('label' => 'admin.form.field.name.label'))
+            ->with('Algemeen')
+                ->add('label', null, array('label' => 'Naam'))
                 ->add('successAction', 'sonata_type_translatable_choice', array(
-                    'label' => 'admin.form.field.name.successaction',
+                    'label' => 'Actie na succes',
                     'required' => true,
                     'choices' => Form::getSuccessActions(),
                     'catalogue' => $this->translationDomain,
                     'attr' => array('class' => 'form_success_action')))
-                ->add('successUrl', null, array('label' => 'admin.form.field.name.successurl', 'required' => true, 'attr' => array('class' => 'form_success_url')))
-                ->add('successMessage', null, array('label' => 'admin.form.field.name.successmessage', 'required' => true, 'attr' => array('class' => 'form_success_message')))
+                ->add('successUrl', null, array('label' => 'URL', 'required' => true, 'attr' => array('class' => 'form_success_url')))
+                ->add('successMessage', null, array('label' => 'Bericht', 'required' => true, 'attr' => array('class' => 'form_success_message')))
             ->end()
-            ->with('admin.form.section.fields')
+            ->with('Beheer velden')
                 ->add('fields', 'sonata_type_collection',
                     array(
-                        'label' => 'admin.form.field.name.fields',
+                        'label' => 'Velden',
                         'required' => false,
                         'by_reference' => false,
                     ),
@@ -47,17 +47,17 @@ class FormAdmin extends Admin
                 )
                 ->add('addCaptcha', null, array('label' => 'Add CAPTCHA'))
             ->end()
-            ->with('admin.form.section.mail')
-                ->add('sendMail', null, array('label' => 'admin.form.field.name.sendmail', 'attr' => array('class' => 'form_mail_toggle')))
-                ->add('mailRecipientName', null, array('label' => 'admin.form.field.name.mailrecipientname', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailRecipientEmail', null, array('label' => 'admin.form.field.name.mailrecipientemail', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailSubject', null, array('label' => 'admin.form.field.name.mailsubject', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
-                ->add('mailBody', null, array('label' => 'admin.form.field.name.mailbody', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
-                ->add('mailSenderName', null, array('label' => 'admin.form.field.name.mailsendername', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
-                ->add('mailSenderEmail', null, array('label' => 'admin.form.field.name.mailsenderemail', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+            ->with('E-mailinstellingen')
+                ->add('sendMail', null, array('label' => 'Stuur een e-mail', 'attr' => array('class' => 'form_mail_toggle')))
+                ->add('mailRecipientName', null, array('label' => 'Naam ontvanger', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailRecipientEmail', null, array('label' => 'E-mailadres ontvanger', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailSubject', null, array('label' => 'Onderwerp e-mail', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
+                ->add('mailBody', null, array('label' => 'Introtekst e-mail', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderName', null, array('label' => 'Naam afzender', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderEmail', null, array('label' => 'E-mailadres afzender', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
             ->end()
-            ->with('admin.form.section.results')
-                ->add('storeResults', null, array('label' => 'admin.form.field.name.results'))
+            ->with('Opslag gegevens')
+                ->add('storeResults', null, array('label' => 'Bewaar gegevens'))
             ->end()
         ;
     }

@@ -289,20 +289,20 @@ class Field
     public static function getTypes()
     {
         return array(
-            self::TYPE_TEXT => 'admin.field.field.type.option.text',
-            self::TYPE_TEXTAREA => 'admin.field.field.type.option.textarea',
-            self::TYPE_EMAIL => 'admin.field.field.type.option.email',
-            self::TYPE_DATE => 'admin.field.field.type.option.date',
-            self::TYPE_CHECKBOX => 'admin.field.field.type.option.checkbox',
-            self::TYPE_SELECT => 'admin.field.field.type.option.select'
+            self::TYPE_TEXT => 'Tekst (één regel)',
+            self::TYPE_TEXTAREA => 'Tekstblok',
+            self::TYPE_EMAIL => 'E-mailadres',
+            self::TYPE_DATE => 'Datum',
+            self::TYPE_CHECKBOX => 'Checkbox',
+            self::TYPE_SELECT => 'Selectie'
         );
     }
 
     public static function getSelectTypes()
     {
         return array(
-            self::SELECT_TYPE_DROPDOWN => 'admin.field.field.selecttype.option.dropdown',
-            self::SELECT_TYPE_RADIO => 'admin.field.field.selecttype.option.radio'
+            self::SELECT_TYPE_DROPDOWN => 'Drop-down',
+            self::SELECT_TYPE_RADIO => 'Radio buttons'
         );
     }
 

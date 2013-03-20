@@ -32,10 +32,10 @@ class FieldAdmin extends Admin
         $editInline = isset($adminAttributes['edit']) && $adminAttributes['edit'] == 'inline';
 
         $formMapper
-            ->with('admin.field.section.general')
-                ->add('label', null, array('label' => 'admin.field.field.name.label'))
+            ->with('Algemeen')
+                ->add('label', null, array('label' => 'Naam'))
                 ->add('type', 'sonata_type_translatable_choice', array(
-                    'label' => 'admin.field.field.name.type',
+                    'label' => 'Type',
                     'required' => true,
                     'choices' => Field::getTypes(),
                     'catalogue' => $this->translationDomain,
@@ -47,7 +47,7 @@ class FieldAdmin extends Admin
         if (!$editInline) {
             $formMapper
                 ->add('selectType', 'sonata_type_translatable_choice', array(
-                        'label' => 'admin.field.field.name.selecttype',
+                        'label' => 'Selectietype',
                         'required' => true,
                         'choices' => Field::getSelectTypes(),
                         'catalogue' => $this->translationDomain,
@@ -56,15 +56,15 @@ class FieldAdmin extends Admin
                         )
                     ))
                 ->add('selectMultiple', 'checkbox', array(
-                    'label' => 'admin.field.field.name.selectmultiple',
+                    'label' => 'Meerdere selecteren',
                     'required' => false,
                     'attr' => array('class' => 'field_select_multiple')
                 ))
-                ->add('required', null, array('label' => 'admin.field.field.name.required', 'attr' => array('class' => 'field_required')))
-                ->add('default', null, array('label' => 'admin.field.field.name.default', 'attr' => array('class' => 'field_default')))
+                ->add('required', null, array('label' => 'Verplicht', 'attr' => array('class' => 'field_required')))
+                ->add('default', null, array('label' => 'Standaardwaarde', 'attr' => array('class' => 'field_default')))
                 ->add('options', 'sonata_type_collection',
                     array(
-                        'label' => 'admin.field.field.name.options',
+                        'label' => 'Opties',
                         'required' => false,
                         'by_reference' => false,
                         'attr' => array('class' => 'field_options'),
@@ -80,7 +80,7 @@ class FieldAdmin extends Admin
 
         if ($editInline) {
             $formMapper
-                ->add('position', null, array('label' => 'admin.field.field.name.position'))
+                ->add('position', null, array('label' => 'Positie'))
             ;
         }
 
@@ -90,8 +90,8 @@ class FieldAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('label', null, array('label' => 'admin.field.field.name.label'))
-            ->add('form', null, array('label' => 'admin.field.field.name.form'))
+            ->addIdentifier('label', null, array('label' => 'Naam'))
+            ->add('form', null, array('label' => 'Formulier'))
         ;
     }
 

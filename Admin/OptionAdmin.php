@@ -28,7 +28,7 @@ class OptionAdmin extends Admin
 
         if ($editInline) {
             $formMapper
-                ->add('position', null, array('label' => 'admin.option.field.name.position'))
+                ->add('position', null, array('label' => 'Positie'))
             ;
         }
     }

@@ -505,8 +505,8 @@ class Form
     public static function getSuccessActions()
     {
         return array(
-            self::SUCCESS_ACTION_REDIRECT => 'admin.form.field.successaction.option.redirect',
-            self::SUCCESS_ACTION_MESSAGE => 'admin.form.field.successaction.option.message'
+            self::SUCCESS_ACTION_REDIRECT => 'Redirect naar onderstaande URL',
+            self::SUCCESS_ACTION_MESSAGE => 'Toon onderstaand bericht'
         );
     }
 

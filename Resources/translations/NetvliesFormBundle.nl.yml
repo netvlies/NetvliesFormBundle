@@ -1,12 +1,5 @@
 admin:
-    label: Formulieren
     form:
-        label: Formulieren
-        section:
-            general: Algemeen
-            fields: Beheer velden
-            mail: E-mailinstellingen
-            results: Opslag gegevens
         field:
             name:
                 label: Naam
