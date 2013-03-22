@@ -97,5 +97,17 @@ class SuccessListener extends ContainerAware
         }
 
         $this->container->get('mailer')->send($message);
+
+        $transport = $this->container->get('mailer')->getTransport();
+        if (!$transport instanceof \Swift_Transport_SpoolTransport) {
+            return;
+        }
+
+        $spool = $transport->getSpool();
+        if (!$spool instanceof \Swift_MemorySpool) {
+            return;
+        }
+
+        $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
     }
 }

@@ -59,6 +59,16 @@ class FormService extends ContainerAware
                     case 'email':
                         $options['constraints'][] = new Email();
                         break;
+                    case 'date':
+                        $options['widget'] = 'single_text';
+                        $options['attr']['class'] = 'datepicker';
+                        $options['attr']['placeholder'] = 'dd-mm-jjjj';
+                        $options['attr']['data-changeyear'] = 'true';
+                        $options['attr']['data-changemonth'] = 'true';
+                        $options['attr']['data-yearrange'] = 'c-120';
+                        $options['input'] = 'string';
+                        $options['format'] = 'd-M-y';
+                        break;
                 }
                 $formBuilder->add('field_'.$field->getId(), $type, $options);
             }
