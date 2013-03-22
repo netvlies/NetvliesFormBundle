@@ -26,12 +26,12 @@ is not publicly available via Packagist.
 ``` js
 {
     "require": {
-        "netvlies/sf2bundle-form": "dev-master"
+        "netvlies/form-bundle": "dev-master"
     },
     "repositories": [
         {
             "type": "git",
-            "url": "git@bitbucket.org:netvlies/sf2bundle-form.git"
+            "url": "git@github.com:netvlies/NetvliesFormBundle.git"
         }
     ],
 }
@@ -41,7 +41,7 @@ is not publicly available via Packagist.
 
 ``` bash
 $ curl -s http://getcomposer.org/installer | php
-$ php composer.phar update netvlies/sf2bundle-form
+$ php composer.phar update netvlies/form-bundle
 ```
 
 Composer will install the bundle to your project's `vendor/netvlies` directory.
