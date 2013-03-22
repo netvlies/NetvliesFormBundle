@@ -5,35 +5,26 @@
     {{ parent() }}
 
     <script>
-        $(document).ready(function() {
+        $(function() {
             $('form').attr('novalidate', 'novalidate');
+
             $('.field_type, .field_select_type').change(function() {
+                var fieldType = $('.field_type').val();
+
                 // select type
-                if ($('.field_type').val() == 'select') {
-                    $('.field_select_type').parent().parent().show();
-                } else {
-                    $('.field_select_type').parent().parent().hide();
-                }
+                $('.field_select_type').parent().parent().toggle(fieldType === 'select');
+
                 // multiple select
-                if ($('.field_type').val() == 'select' && $('.field_select_type').val() != 'radio') {
-                    $('.field_select_multiple').parent().parent().show();
-                } else {
-                    $('.field_select_multiple').parent().parent().hide();
-                }
+                $('.field_select_multiple').parent().parent().toggle(fieldType === 'select' && $('.field_select_type').val() !== 'radio');
+
                 // default
-                if ($('.field_type').val() != 'checkbox') {
-                    $('.field_default').parent().parent().show();
-                } else {
-                    $('.field_default').parent().parent().hide();
-                }
+                $('.field_default').parent().parent().toggle(fieldType !== 'checkbox');
+
                 // options
-                if ($('.field_type').val() == 'select') {
-                    $('.sonata-ba-field-inline-table').parent().show();
-                } else {
-                    $('.sonata-ba-field-inline-table').parent().hide();
-                }
+                $('.sonata-ba-field-inline-table').parent().toggle(fieldtype === 'select');
+
             }).change();
-        })
+        });
     </script>
 
 {% endblock %}
