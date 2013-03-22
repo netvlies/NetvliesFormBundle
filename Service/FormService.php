@@ -1,6 +1,6 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Service;
+namespace Netvlies\Bundle\NetvliesFormBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Validator\Constraints\Email;

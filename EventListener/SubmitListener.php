@@ -1,7 +1,7 @@
 <?php
-namespace Netvlies\Bundle\FormBundle\EventListener;
+namespace Netvlies\Bundle\NetvliesFormBundle\EventListener;
 
-use Netvlies\Bundle\FormBundle\Event\FormEvent;
+use Netvlies\Bundle\NetvliesFormBundle\Event\FormEvent;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;

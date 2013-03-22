@@ -1,19 +1,19 @@
 services:
 
     netvlies.form.form.admin:
-          class: Netvlies\Bundle\FormBundle\Admin\FormAdmin
+          class: Netvlies\Bundle\NetvliesFormBundle\Admin\FormAdmin
           arguments:
             - null
-            - Netvlies\Bundle\FormBundle\Entity\Form
+            - Netvlies\Bundle\NetvliesFormBundle\Entity\Form
             - NetvliesFormBundle:FormAdmin
           tags:
             - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.form.label, label_catalogue: NetvliesFormBundle }
 
     netvlies.admin.form.field:
-        class: Netvlies\Bundle\FormBundle\Admin\FieldAdmin
+        class: Netvlies\Bundle\NetvliesFormBundle\Admin\FieldAdmin
         arguments:
           - null
-          - Netvlies\Bundle\FormBundle\Entity\Field
+          - Netvlies\Bundle\NetvliesFormBundle\Entity\Field
           - null
         calls:
           - [ setFormAdmin, [@netvlies.form.form.admin] ]
@@ -21,35 +21,35 @@ services:
           - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.field.label, show_in_dashboard: false, label_catalogue: NetvliesFormBundle }
 
     netvlies.form.option.admin:
-        class: Netvlies\Bundle\FormBundle\Admin\OptionAdmin
+        class: Netvlies\Bundle\NetvliesFormBundle\Admin\OptionAdmin
         arguments:
           - null
-          - Netvlies\Bundle\FormBundle\Entity\Option
+          - Netvlies\Bundle\NetvliesFormBundle\Entity\Option
           - null
         tags:
           - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.option.label, show_in_dashboard: false, label_catalogue: NetvliesFormBundle }
 
     netvlies.form:
-        class: Netvlies\Bundle\FormBundle\Service\FormService
+        class: Netvlies\Bundle\NetvliesFormBundle\Service\FormService
         calls:
           - [ setContainer, [@service_container] ]
 
     netvlies.form.twig.extension:
-        class: Netvlies\Bundle\FormBundle\Twig\Extension\FormExtension
+        class: Netvlies\Bundle\NetvliesFormBundle\Twig\Extension\FormExtension
         calls:
           - [ setContainer, [@service_container] ]
         tags:
           - { name: twig.extension }
 
     netvlies.listener.form.submit:
-        class: Netvlies\Bundle\FormBundle\EventListener\SubmitListener
+        class: Netvlies\Bundle\NetvliesFormBundle\EventListener\SubmitListener
         calls:
           - [ setContainer, [@service_container] ]
         tags:
           - { name: kernel.event_listener, event: kernel.request }
 
     netvlies.listener.form.success:
-        class: Netvlies\Bundle\FormBundle\EventListener\SuccessListener
+        class: Netvlies\Bundle\NetvliesFormBundle\EventListener\SuccessListener
         calls:
           - [ setContainer, [@service_container] ]
         tags:

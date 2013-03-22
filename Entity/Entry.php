@@ -1,6 +1,6 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Entity;
+namespace Netvlies\Bundle\NetvliesFormBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

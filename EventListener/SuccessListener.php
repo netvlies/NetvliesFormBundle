@@ -1,9 +1,9 @@
 <?php
-namespace Netvlies\Bundle\FormBundle\EventListener;
+namespace Netvlies\Bundle\NetvliesFormBundle\EventListener;
 
-use Netvlies\Bundle\FormBundle\Event\FormEvent;
-use Netvlies\Bundle\FormBundle\Entity\Entry;
-use Netvlies\Bundle\FormBundle\Entity\Result;
+use Netvlies\Bundle\NetvliesFormBundle\Event\FormEvent;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Entry;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Result;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;

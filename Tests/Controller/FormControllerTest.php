@@ -1,6 +1,6 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Tests\Controller;
+namespace Netvlies\Bundle\NetvliesFormBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\DependencyInjection;
+namespace Netvlies\Bundle\NetvliesFormBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

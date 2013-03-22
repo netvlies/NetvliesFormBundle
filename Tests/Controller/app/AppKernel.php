@@ -12,7 +12,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Netvlies\Bundle\FormBundle\NetvliesFormBundle(),
+            new Netvlies\Bundle\NetvliesFormBundle\NetvliesFormBundle(),
         );
 
         return $bundles;

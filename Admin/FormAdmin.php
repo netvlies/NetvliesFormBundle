@@ -1,8 +1,8 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Admin;
+namespace Netvlies\Bundle\NetvliesFormBundle\Admin;
 
-use Netvlies\Bundle\FormBundle\Entity\Form;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Form;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;

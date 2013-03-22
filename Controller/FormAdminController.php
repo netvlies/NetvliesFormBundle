@@ -1,9 +1,9 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Controller;
+namespace Netvlies\Bundle\NetvliesFormBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
-use Netvlies\Bundle\FormBundle\Entity\Form;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Form;
 use PHPExcel;
 use PHPExcel_Writer_Excel2007;
 

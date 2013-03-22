@@ -1,12 +1,12 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\DataFixtures\ORM;
+namespace Netvlies\Bundle\NetvliesFormBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Netvlies\Bundle\FormBundle\Entity\Field;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Field;
 
 class FieldFixture extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {

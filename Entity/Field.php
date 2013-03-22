@@ -1,9 +1,9 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle\Entity;
+namespace Netvlies\Bundle\NetvliesFormBundle\Entity;
 
-use Netvlies\Bundle\FormBundle\Entity\Forms;
-use Netvlies\Bundle\FormBundle\Entity\Option;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Forms;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Option;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 

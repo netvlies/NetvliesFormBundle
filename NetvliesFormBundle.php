@@ -1,6 +1,6 @@
 <?php
 
-namespace Netvlies\Bundle\FormBundle;
+namespace Netvlies\Bundle\NetvliesFormBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
