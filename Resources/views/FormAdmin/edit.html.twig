@@ -5,17 +5,14 @@
     {{ parent() }}
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(function() {
             $('form').attr('novalidate', 'novalidate');
+
             $('.form_success_action').change(function() {
-                if (this.value == 'redirect') {
-                    $('.form_success_url').parent().parent().show();
-                    $('.form_success_message').parent().parent().hide();
-                } else {
-                    $('.form_success_url').parent().parent().hide();
-                    $('.form_success_message').parent().parent().show();
-                }
+                $('.form_success_url').parent().parent().toggle(this.value === 'redirect');
+                $('.form_success_message').parent().parent().toggle(this.value !== 'redirect');
             }).change();
+
             $('.form_mail_toggle').change(function() {
                 $('.form_mail_related').parent().parent().toggle(this.checked);
             }).change();
