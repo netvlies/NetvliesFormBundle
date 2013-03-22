@@ -1,9 +1,9 @@
 {
-    "name": "netvlies/sf2bundle-form",
+    "name": "netvlies/form-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony NetvliesFormBundle",
-    "keywords": ["soms", "form", "netvlies"],
-    "homepage": "https://bitbucket.org/netvlies/sf2bundle-form",
+    "description": "NetvliesFormBundle",
+    "keywords": ["form", "bundle", "netvlies", "symfony"],
+    "homepage": "https://github.com/netvlies/NetvliesFormBundle",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -14,7 +14,7 @@
             }
         ],
     "require": {
-	"php": ">=5.3.0",
+	    "php": ">=5.3.0",
         "symfony/symfony": "2.1.*",
         "phpexcel/phpexcel": "1.7.7",
         "gregwar/captcha-bundle": "dev-master"
@@ -27,8 +27,8 @@
         "doctrine/doctrine-fixtures-bundle": "2.1.*"
     },
     "autoload":     {
-        "psr-0": { "Netvlies\\Bundle\\FormBundle": "" }
+        "psr-0": { "Netvlies\\Bundle\\NetvliesFormBundle": "" }
     },
-    "target-dir": "Netvlies/Bundle/FormBundle",
+    "target-dir": "Netvlies/Bundle/NetvliesFormBundle",
     "minimum-stability": "dev"
 }
