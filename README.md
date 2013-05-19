@@ -92,7 +92,6 @@ Or directly from the view.
 ```php
 
 {{ show_form(formId) }}
-
 ```
 
 ## Form submit and success handling
@@ -146,7 +145,6 @@ the following translations file.
 
 This value should not be blank.: Dit veld mag niet leeg zijn.
 This value is not a valid email address.: Dit is geen geldig e-mailadres.
-
 ```
 
 ### Contribute
