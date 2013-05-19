@@ -7,23 +7,26 @@
     "type": "library",
     "license": "MIT",
     "authors": [
-            {
-                "name": "Netvlies",
-                "email": "programmeurs@netvlies.nl",
-                "homepage": "http://www.netvlies.nl"
-            }
-        ],
+        {
+            "name": "Netvlies",
+            "email": "programmeurs@netvlies.nl",
+            "homepage": "http://www.netvlies.nl"
+        }
+    ],
     "require": {
 	"php": ">=5.3.0",
         "phpexcel/phpexcel": "1.7.7",
-        "gregwar/captcha-bundle": "dev-master"
+        "gregwar/captcha-bundle": "1.0.0"
     },
     "require-dev": {
         "sensio/framework-extra-bundle": "2.1.*",
-        "sonata-project/admin-bundle": "dev-master",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.0.*",
-        "doctrine/doctrine-fixtures-bundle": "2.1.*"
+        "symfony/browser-kit": "2.1.*",
+        "symfony/class-loader": "2.1.*",
+        "symfony/finder": "2.1.*",
+        "symfony/form": "2.1.*",
+        "symfony/framework-bundle": "2.1.*",
+        "symfony/http-kernel": "2.1.*",
+        "symfony/yaml": "2.1.*"
     },
     "autoload":     {
         "psr-0": { "Netvlies\\Bundle\\NetvliesFormBundle": "" }
