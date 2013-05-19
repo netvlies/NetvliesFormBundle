@@ -20,20 +20,11 @@ Twig extension.
 
 ### Add in your composer.json
 
-This requires the definition of a repository in your composer.json as the bundle
-is not publicly available via Packagist.
-
 ``` js
 {
     "require": {
         "netvlies/form-bundle": "dev-master"
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:netvlies/NetvliesFormBundle.git"
-        }
-    ],
+    }
 }
 ```
 
@@ -64,7 +55,8 @@ public function registerBundles()
 
 ## Configuration
 
-By default the bundle uses default Symfony form rendering and provides configuration to customize the templates used.
+By default the bundle uses default Symfony form rendering and provides
+configuration to customize the templates used.
 
 ```yaml
 netvlies_form:
@@ -82,7 +74,8 @@ This bundle requires no specific routing configuration.
 
 ## Usage
 
-After installation and configuration, the service can be directly referenced from within your controllers.
+After installation and configuration, the service can be directly referenced
+from within your controllers.
 
 ```php
 <?php
@@ -104,10 +97,13 @@ Or directly from the view.
 
 ## Form submit and success handling
 
-The bundle provides a default success listener which handles default functionality like storing a result and sending a
-confirmation email (when enabled through the admin). Of course you can implement your own application specific success
-handling by overriding the default listener (netvlies.listener.form.success) or attaching an additional listener.
-Whichever option you prefer. The same holds for the submit listener, which handles the form posts.
+The bundle provides a default success listener which handles default
+functionality like storing a result and sending a confirmation email (when
+enabled through the admin). Of course you can implement your own application
+specific success handling by overriding the default listener
+(netvlies.listener.form.success) or attaching an additional listener. Whichever
+option you prefer. The same holds for the submit listener, which handles the
+form posts.
 
 ### Attaching an additional listener
 
@@ -137,11 +133,13 @@ netvlies.listener.form.success:
 
 ### Translations
 
-The bundle makes use of the Symfony validation messages and provides translation files for bundle specific captions. All
-of these translations can be overridden by creating your own translation files and putting them in one of the directories
-specified in the [`translations documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
+The bundle makes use of the Symfony validation messages and provides
+translation files for bundle specific captions. All of these translations can
+be overridden by creating your own translation files and putting them in one of
+the directories specified in the [`translations documentation`](http://symfony.com/doc/2.1/book/translation.html#translation-locations-and-naming-conventions).
 
-For instance, to customize the messages for your application, you could create the following translations file.
+For instance, to customize the messages for your application, you could create
+the following translations file.
 
 ``` yml
 // app/Resources/translations/validators.nl.yml
@@ -150,3 +148,17 @@ This value should not be blank.: Dit veld mag niet leeg zijn.
 This value is not a valid email address.: Dit is geen geldig e-mailadres.
 
 ```
+
+### Contribute
+
+You can contribute to this bundle by issuing a [`pull request`](https://help.github.com/articles/using-pull-requests).
+The following are improvements we would like to see implemented somewhere in
+the near future.
+
+* File upload field
+* Easy injection / registration of custom field types
+* Functional tests
+
+Please note that the goal of this bundle is enabling the end user to easily
+create basic forms and not to create a complex one-bundle-fits-all solution
+that handles all possible types of forms. So please keep it simple.
