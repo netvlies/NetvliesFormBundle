@@ -60,6 +60,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
             if ($this->container->getParameter('netvlies.form.templates.fields') != null) {
                 $this->container->get('twig')->getExtension('form')->renderer->setTheme($formView, array($this->container->getParameter('netvlies.form.templates.fields')));
             }
+
             return $this->container->get('templating')->render($this->container->getParameter('netvlies.form.templates.form'), array(
                 'id' => $form->getId(),
                 'form' => $formView
