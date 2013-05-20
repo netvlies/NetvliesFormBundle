@@ -6,8 +6,6 @@ php:
 before_script:
   - wget -nc http://getcomposer.org/composer.phar
   - php composer.phar install --dev
-  - php app/console doctrine:database:create
-  - php app/console doctrine:fixtures:load
 
 script: phpunit -c phpunit.xml.dist
 
