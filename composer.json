@@ -14,9 +14,9 @@
         }
     ],
     "require": {
-	"php": ">=5.3.0",
-        "phpexcel/phpexcel": "1.7.7",
-        "gregwar/captcha-bundle": "dev-master"
+	    "php": ">=5.3.0",
+        "phpexcel/phpexcel": "~1.7",
+        "gregwar/captcha-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/framework-extra-bundle": "2.1.*",
@@ -32,5 +32,9 @@
         "psr-0": { "Netvlies\\Bundle\\NetvliesFormBundle": "" }
     },
     "target-dir": "Netvlies/Bundle/NetvliesFormBundle",
-    "minimum-stability": "dev"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
 }
