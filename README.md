@@ -12,6 +12,8 @@ Forms created using the FormBundle can be retrieved using the form service or
 be directly shown by using the show_form function provided by the FormBundle
 Twig extension.
 
+[![knpbundles.com](http://knpbundles.com/netvlies/NetvliesFormBundle/badge-short)](http://knpbundles.com/netvlies/NetvliesFormBundle)
+
 ## Requirements
 
 * Symfony
