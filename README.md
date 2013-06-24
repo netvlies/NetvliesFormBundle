@@ -6,6 +6,8 @@ Admin Bundle. It includes form configuration, storage of results, sending of
 notifications when a form is filled in and even the possibility to export form
 results through the Sonata list view.
 
+![Form Admin](Resources/doc/fields.png)
+
 Forms created using the FormBundle can be retrieved using the form service or
 be directly shown by using the show_form function provided by the FormBundle
 Twig extension.
