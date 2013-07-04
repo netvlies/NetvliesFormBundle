@@ -22,21 +22,11 @@ Twig extension.
 
 ## Installation
 
-### Add in your composer.json
-
-``` js
-{
-    "require": {
-        "netvlies/form-bundle": "dev-master"
-    }
-}
-```
-
 ### Install the bundle
 
 ``` bash
 $ curl -s http://getcomposer.org/installer | php
-$ php composer.phar update netvlies/form-bundle
+$ php composer.phar require netvlies/form-bundle
 ```
 
 Composer will install the bundle to your project's `vendor/netvlies` directory.
