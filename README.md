@@ -1,6 +1,9 @@
 Netvlies FormBundle
 ===================
 
+[![Latest Stable Version](https://poser.pugx.org/netvlies/form-bundle/v/stable.png)](https://packagist.org/packages/netvlies/form-bundle)
+[![Total Downloads](https://poser.pugx.org/netvlies/form-bundle/downloads.png)](https://packagist.org/packages/netvlies/form-bundle)
+
 The Netvlies FormBundle enables users to create basic forms through the Sonata
 Admin Bundle. It includes form configuration, storage of results, sending of
 notifications when a form is filled in and even the possibility to export form
