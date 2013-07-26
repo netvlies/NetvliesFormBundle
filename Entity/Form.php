@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ExecutionContext;
 
 /**
- * @Assert\Callback(methods={"validateContact"})
+ * @Assert\Callback(methods={"validateSuccessAction", "validateSendMail"})
  * @ORM\Entity
  * @ORM\Table(name="netvlies_form_form")
  */
@@ -64,20 +64,20 @@ class Form
     protected $sendMail = false;
 
     /**
-     * @Assert\NotBlank(groups={"contact"})
+     * @Assert\NotBlank(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailRecipientName;
 
     /**
-     * @Assert\Email(groups={"contact"})
-     * @Assert\NotBlank(groups={"contact"})
+     * @Assert\Email(groups={"email"})
+     * @Assert\NotBlank(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailRecipientEmail;
 
     /**
-     * @Assert\NotBlank(groups={"contact"})
+     * @Assert\NotBlank(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailSubject;
@@ -93,7 +93,7 @@ class Form
     protected $mailSenderName;
 
     /**
-     * @Assert\Email(groups={"contact"})
+     * @Assert\Email(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailSenderEmail;
@@ -353,15 +353,15 @@ class Form
         return $this->results;
     }
 
-    public function validateContact(ExecutionContext $executionContext)
+    public function validateSuccessAction(ExecutionContext $executionContext)
+    {
+        $executionContext->validate($this, '', ($this->successAction == 'redirect') ? 'success_url' : 'success_message');
+    }
+
+    public function validateSendMail(ExecutionContext $executionContext)
     {
         if ($this->sendMail) {
-            $executionContext->validate($this, 'contact', $executionContext->getPropertyPath(), true);
-        }
-        if ($this->successAction == 'redirect') {
-            $executionContext->validate($this, 'success_url', $executionContext->getPropertyPath(), true);
-        } else {
-            $executionContext->validate($this, 'success_message', $executionContext->getPropertyPath(), true);
+            $executionContext->validate($this, '', 'email');
         }
     }
 
