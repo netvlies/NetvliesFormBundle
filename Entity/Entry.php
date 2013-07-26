@@ -84,6 +84,6 @@ class Entry
 
     public function __toString()
     {
-        return $this->value;
+        return strval($this->value);
     }
 }

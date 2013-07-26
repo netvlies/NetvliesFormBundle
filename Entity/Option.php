@@ -84,6 +84,6 @@ class Option
 
     public function __toString()
     {
-        return $this->label;
+        return strval($this->label);
     }
 }
