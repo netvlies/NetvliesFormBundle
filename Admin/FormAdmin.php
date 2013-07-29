@@ -76,11 +76,7 @@ class FormAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('label')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'results' => array('template' => 'NetvliesFormBundle:FormAdmin:list__action_results.html.twig'),
-                )
-            ))
+            ->add('results', 'string', array('template' => 'NetvliesFormBundle:FormAdmin:results.html.twig'))
         ;
     }
 

@@ -1,9 +1,0 @@
-{%  if object.storeResults and object.results|length > 0 %}
-
-    <a href="{{ path("admin_bundle_netvliesform_form_results", { "id": object.id }) }}">Results ({{ object.results|length }})</a>
-
-{% else %}
-
-    No results
-
-{% endif %}
