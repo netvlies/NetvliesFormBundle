@@ -75,8 +75,8 @@ class FormAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('label')
-            ->add('results', 'string', array('template' => 'NetvliesFormBundle:FormAdmin:results.html.twig'))
+            ->addIdentifier('label', null, array('label' => 'admin.form.list.label'))
+            ->add('results', 'string', array('label' => 'admin.form.list.results', 'template' => 'NetvliesFormBundle:FormAdmin:results.html.twig'))
         ;
     }
 
