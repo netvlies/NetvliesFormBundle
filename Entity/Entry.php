@@ -48,6 +48,10 @@ class Entry
 
     public function setValue($value)
     {
+        if (is_array($value)) {
+            $value = serialize($value);
+        }
+
         $this->value = $value;
 
         return $this;
@@ -55,6 +59,11 @@ class Entry
 
     public function getValue()
     {
+        $value = @unserialize($this->value);
+        if (is_array($value)) {
+            $this->value = $value;
+        }
+
         return $this->value;
     }
 
