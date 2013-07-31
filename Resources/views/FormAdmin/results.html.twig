@@ -1,0 +1,13 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+
+    {% if object.storeResults %}
+
+        {% if object.results|length > 0 %}<a href="{{ path("admin_bundle_netvliesform_form_results", { "id": object.id }) }}">{% endif %}
+            {% transchoice admin.datagrid.pager.nbresults with {'%count%': object.results|length} from 'SonataAdminBundle' %}list_results_count{% endtranschoice %}
+        {% if object.results|length > 0 %}</a>{% endif %}
+
+    {% endif %}
+
+{% endblock field %}

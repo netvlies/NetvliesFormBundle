@@ -7,6 +7,9 @@ admin:
             fields: Beheer velden
             mail: E-mailinstellingen
             results: Opslag gegevens
+        list:
+            label: Label
+            results: Resultaten
         field:
             name:
                 label: Naam

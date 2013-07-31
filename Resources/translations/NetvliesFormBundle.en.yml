@@ -7,6 +7,9 @@ admin:
             fields: Manage fields
             mail: Email settings
             results: Storage
+        list:
+            label: Label
+            results: Results
         field:
             name:
                 label: Name
