@@ -16,7 +16,7 @@
     "require": {
 	    "php": ">=5.3.0",
         "phpexcel/phpexcel": "~1.7",
-        "gregwar/captcha-bundle": "dev-master"
+        "gregwar/captcha-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/framework-extra-bundle": "2.1.*",

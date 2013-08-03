@@ -26,7 +26,6 @@ class FormAdminController extends CRUDController
 
         $rowNumber = 1;
         foreach ($form->getResults() as $result) {
-
             if ($rowNumber == 1) {
                 $ord = ord('A');
                 foreach ($result->getEntries() as $entry) {
@@ -34,26 +33,21 @@ class FormAdminController extends CRUDController
                     $ord++;
                 }
                 $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, 'Datum');
-
                 $rowNumber++;
             }
-
             $ord = ord('A');
             foreach ($result->getEntries() as $entry) {
                 $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, implode(', ', (array) $entry->getValue()));
                 $ord++;
             }
             $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, $result->getDatetimeAdded()->format('Y-m-d H:i:s'));
-
             $rowNumber++;
         }
 
         $writer = new PHPExcel_Writer_Excel2007($excel);
-
         ob_start();
         $writer->save('php://output');
         $content = ob_get_clean();
-
         $response = new Response();
         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         $response->headers->set('Content-Disposition', 'attachment;filename="form_'.$form->getId().'_'.date('YmdHis').'.xlsx"');
