@@ -11,10 +11,11 @@
 
 namespace Netvlies\Bundle\NetvliesFormBundle\Controller;
 
-use Sonata\AdminBundle\Controller\CRUDController;
 use Netvlies\Bundle\NetvliesFormBundle\Entity\Form;
 use PHPExcel;
 use PHPExcel_Writer_Excel2007;
+use Sonata\AdminBundle\Controller\CRUDController;
+use Symfony\Component\HttpFoundation\Response;
 
 class FormAdminController extends CRUDController
 {
@@ -47,14 +48,18 @@ class FormAdminController extends CRUDController
             $rowNumber++;
         }
 
-        // @todo Rewrite to return nice Symfony Response object
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment;filename="form_'.$form->getId().'_'.date('YmdHis').'.xlsx"');
-        header('Cache-Control: max-age=0');
-
         $writer = new PHPExcel_Writer_Excel2007($excel);
-        $writer->save('php://output');
 
-        die;
+        ob_start();
+        $writer->save('php://output');
+        $content = ob_get_clean();
+
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', 'attachment;filename="form_'.$form->getId().'_'.date('YmdHis').'.xlsx"');
+        $response->headers->set('Cache-Control', 'max-age=0');
+        $response->setContent($content);
+
+        return $response;
     }
 }
