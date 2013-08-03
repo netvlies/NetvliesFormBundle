@@ -13,8 +13,8 @@ namespace Netvlies\Bundle\NetvliesFormBundle\EventListener;
 
 use Netvlies\Bundle\NetvliesFormBundle\Event\FormEvent;
 use Netvlies\Bundle\NetvliesFormBundle\Entity\Entry;
+use Netvlies\Bundle\NetvliesFormBundle\Entity\Form;
 use Netvlies\Bundle\NetvliesFormBundle\Entity\Result;
-
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -55,7 +55,7 @@ class SuccessListener extends ContainerAware
      * @param $form
      * @return Result
      */
-    public function createResult($form)
+    public function createResult(Form $form)
     {
         $result = new Result();
         $result->setDatetimeAdded(new \DateTime());
@@ -78,7 +78,7 @@ class SuccessListener extends ContainerAware
      * @param $form
      * @param $result
      */
-    public function storeResult($form, $result)
+    public function storeResult(Form $form, Result $result)
     {
         $entityManager = $this->container->get('doctrine')->getEntityManager();
         $form->addResult($result);
@@ -90,9 +90,10 @@ class SuccessListener extends ContainerAware
      * Sends a mail containing the form values to the contact e-mail address
      * specified.
      *
-     * @param $form
+     * @param Form $form
+     * @param Result $result
      */
-    public function sendMail($form, $result)
+    public function sendMail(Form $form, Result $result)
     {
         $message = \Swift_Message::newInstance()
             ->setSubject($form->getMailSubject())
