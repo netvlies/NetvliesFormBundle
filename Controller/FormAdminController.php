@@ -39,7 +39,7 @@ class FormAdminController extends CRUDController
 
             $ord = ord('A');
             foreach ($result->getEntries() as $entry) {
-                $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, $entry->getValue());
+                $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, implode(', ', (array) $entry->getValue()));
                 $ord++;
             }
             $excel->getActiveSheet()->SetCellValue(chr($ord).$rowNumber, $result->getDatetimeAdded()->format('Y-m-d H:i:s'));

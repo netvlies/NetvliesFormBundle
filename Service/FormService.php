@@ -60,9 +60,11 @@ class FormService extends ContainerAware
                         foreach ($field->getOptions() as $option) {
                             $options['choices'][$option->getLabel()] = $option->getLabel();
                         }
-                        $options['data'] = array();
                         if ($field->getDefault()) {
-                            $options['data'][] = $field->getDefault();
+                            $options['data'] = $field->getDefault();
+                            if ($options['multiple']) {
+                                $options['data'] = explode(',', $options['data']);
+                            }
                         }
                         break;
                     case 'email':

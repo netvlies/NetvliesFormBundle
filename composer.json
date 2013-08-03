@@ -28,6 +28,12 @@
         "symfony/http-kernel": "2.1.*",
         "symfony/yaml": "2.1.*"
     },
+    "conflict": {
+        "sonata-project/admin-bundle": "<2.1"
+    },
+    "suggest": {
+        "sonata-project/admin-bundle": "This bundle provides classes to manage forms through Sonata Admin"
+    },
     "autoload":     {
         "psr-0": { "Netvlies\\Bundle\\NetvliesFormBundle": "" }
     },
