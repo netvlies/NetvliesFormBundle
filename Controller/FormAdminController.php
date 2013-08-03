@@ -44,6 +44,17 @@ class FormAdminController extends CRUDController
             $rowNumber++;
         }
 
+        return $this->createResponse($excel);
+    }
+
+    /**
+     * Generates a response object for a PHPExcel object.
+     *
+     * @param PHPExcel $excel
+     * @return Response
+     */
+    protected function createResponse(PHPExcel $excel)
+    {
         $writer = new PHPExcel_Writer_Excel2007($excel);
         ob_start();
         $writer->save('php://output');

@@ -15,7 +15,6 @@ use Netvlies\Bundle\NetvliesFormBundle\Event\FormEvent;
 
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\HttpKernel;
 
 class SubmitListener extends ContainerAware
 {
