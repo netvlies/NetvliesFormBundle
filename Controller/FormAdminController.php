@@ -44,16 +44,19 @@ class FormAdminController extends CRUDController
             $rowNumber++;
         }
 
-        return $this->createResponse($excel);
+        $fileName = 'form_'.$form->getId().'_'.date('YmdHis').'.xlsx';
+
+        return $this->createResponse($excel, $fileName);
     }
 
     /**
      * Generates a response object for a PHPExcel object.
      *
      * @param PHPExcel $excel
+     * @param $fileName
      * @return Response
      */
-    protected function createResponse(PHPExcel $excel)
+    protected function createResponse(PHPExcel $excel, $fileName)
     {
         $writer = new PHPExcel_Writer_Excel2007($excel);
         ob_start();
@@ -61,7 +64,7 @@ class FormAdminController extends CRUDController
         $content = ob_get_clean();
         $response = new Response();
         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        $response->headers->set('Content-Disposition', 'attachment;filename="form_'.$form->getId().'_'.date('YmdHis').'.xlsx"');
+        $response->headers->set('Content-Disposition', 'attachment;filename="'.$fileName.'"');
         $response->headers->set('Cache-Control', 'max-age=0');
         $response->setContent($content);
 
