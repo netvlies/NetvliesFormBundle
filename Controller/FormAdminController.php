@@ -44,7 +44,7 @@ class FormAdminController extends CRUDController
             $rowNumber++;
         }
 
-        $fileName = 'form_'.$form->getId().'_'.date('YmdHis').'.xlsx';
+        $fileName = preg_replace('#\s+#i', '_', $form->getLabel()).'_'.$form->getId().'_'.date('YmdHis').'.xlsx';
 
         return $this->createResponse($excel, $fileName);
     }
