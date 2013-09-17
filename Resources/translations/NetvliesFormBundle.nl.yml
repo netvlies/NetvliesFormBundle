@@ -62,3 +62,8 @@ admin:
         field:
             name:
                 position: Positie
+
+# Sonata Admin
+Form List: Formulieren
+Field List: Velden
+

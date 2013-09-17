@@ -62,3 +62,8 @@ admin:
         field:
             name:
                 position: Position
+
+# Sonata Admin
+Form List: Forms
+Field List: Fields
+
