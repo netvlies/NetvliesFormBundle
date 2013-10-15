@@ -45,12 +45,18 @@ class FormService extends ContainerAware
                     'label' => $field->getLabel(),
                     'constraints' => array()
                 );
+                
                 if ($field->getRequired()) {
                     $options['constraints'][] = new NotBlank();
                 }
+                else{
+                    $options['required'] = false;
+                }
+                
                 if ($field->getDefault()) {
                     $options['data'] = $field->getDefault();
                 }
+                
                 switch ($field->getType()) {
                     case 'select':
                         $type = 'choice';
