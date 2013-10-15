@@ -138,4 +138,41 @@ class FieldAdmin extends Admin
                 break;
         }
     }
+    
+    /**
+     * A list of all fields for all forms is kind of useless, we want to return to the parent form in which this field is included, so we remove
+     * the 'back to list' route and re-add it with parent form entries. Note that id must be filled with the form id instead of the field id.
+     * this is taken care of in the generateObjectUrl override
+     *
+     * @param RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        parent::configureRoutes($collection);
+        $collection->remove('netvlies.admin.form.field.list');
+
+        $formCollection = new RouteCollection('netvlies.form.form.admin', 'admin_bundle_form_form', '/bundle/form/form', 'NetvliesFormBundle:FormAdmin');
+        $formCollection->add('netvlies.admin.form.field.list', '{id}/edit');
+        $collection->addCollection($formCollection);
+    }
+
+
+    /**
+     *
+     * This is to create the correct route when going back to the form edit instead of the field list
+     *
+     * @param string  $name
+     * @param mixed   $object
+     * @param array   $parameters
+     *
+     * @return string return a complete url
+     */
+    public function generateObjectUrl($name, $object, array $parameters = array(), $absolute = false)
+    {
+        if($name!='list'){
+            return parent::generateObjectUrl($name, $object, $parameters, $absolute).'/'.$name;
+        }
+
+        return  parent::generateObjectUrl($name, $object->getForm(), $parameters, $absolute);
+    }    
 }
