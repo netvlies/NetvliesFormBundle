@@ -170,7 +170,7 @@ class FieldAdmin extends Admin
     public function generateObjectUrl($name, $object, array $parameters = array(), $absolute = false)
     {
         if($name!='list'){
-            return parent::generateObjectUrl($name, $object, $parameters, $absolute).'/'.$name;
+            return parent::generateObjectUrl($name, $object, $parameters, $absolute);
         }
 
         return  parent::generateObjectUrl($name, $object->getForm(), $parameters, $absolute);
