@@ -175,4 +175,19 @@ class FieldAdmin extends Admin
 
         return  parent::generateObjectUrl($name, $object->getForm(), $parameters, $absolute);
     }    
-}
+    
+    /**
+     * Add specific validation when default for type = date is entered 
+     */
+    public function validate(ErrorElement $errorElement, $field)
+    {
+        if($field->getType() == 'date'){
+            $formatter = new \IntlDateFormatter(null, null, null);
+            $formatter->setPattern('d-M-y');
+
+            if(!$formatter->parse($field->getDefault())){
+                $errorElement->with('default')->addViolation('Dit is geen geldige standaardwaarde voor datum volgens formaat dag-maand-jaar');
+            }
+        }
+
+    }    
