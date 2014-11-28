@@ -16,6 +16,8 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Validator\ErrorElement;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class FieldAdmin extends Admin
@@ -25,7 +27,7 @@ class FieldAdmin extends Admin
     protected $translationDomain = 'NetvliesFormBundle';
 
     protected $datagridValues = array(
-        '_page'       => 1,
+        '_page' => 1,
         '_sort_by' => 'position',
         '_sort_order' => 'ASC'
     );
@@ -42,16 +44,15 @@ class FieldAdmin extends Admin
 
         $formMapper
             ->with('admin.field.section.general')
-                ->add('label', null, array('label' => 'admin.field.field.name.label'))
-                ->add('type', 'sonata_type_translatable_choice', array(
+            ->add('label', null, array('label' => 'admin.field.field.name.label'))
+            ->add('type', 'sonata_type_translatable_choice', array(
                     'label' => 'admin.field.field.name.type',
                     'required' => true,
                     'choices' => Field::getTypes(),
                     'catalogue' => $this->translationDomain,
                     'attr' => array('class' => 'field_type')
                 )
-            )
-        ;
+            );
 
         if (!$editInline) {
             $formMapper
@@ -80,14 +81,12 @@ class FieldAdmin extends Admin
                         'inline' => 'table',
                         'sortable' => 'position',
                     )
-                )
-            ;
+                );
         }
 
         if ($editInline) {
             $formMapper
-                ->add('position', null, array('label' => 'admin.field.field.name.position'))
-            ;
+                ->add('position', null, array('label' => 'admin.field.field.name.position'));
         }
 
         $formMapper->end();
@@ -97,15 +96,13 @@ class FieldAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('label', null, array('label' => 'admin.field.field.name.label'))
-            ->add('form', null, array('label' => 'admin.field.field.name.form'))
-        ;
+            ->add('form', null, array('label' => 'admin.field.field.name.form'));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('label')
-        ;
+            ->add('label');
     }
 
     public function postUpdate($field)
@@ -138,7 +135,7 @@ class FieldAdmin extends Admin
                 break;
         }
     }
-    
+
     /**
      * A list of all fields for all forms is kind of useless, we want to return to the parent form in which this field is included, so we remove
      * the 'back to list' route and re-add it with parent form entries. Note that id must be filled with the form id instead of the field id.
@@ -161,33 +158,34 @@ class FieldAdmin extends Admin
      *
      * This is to create the correct route when going back to the form edit instead of the field list
      *
-     * @param string  $name
-     * @param mixed   $object
-     * @param array   $parameters
+     * @param string $name
+     * @param mixed $object
+     * @param array $parameters
      *
      * @return string return a complete url
      */
     public function generateObjectUrl($name, $object, array $parameters = array(), $absolute = false)
     {
-        if($name!='list'){
+        if ($name != 'list') {
             return parent::generateObjectUrl($name, $object, $parameters, $absolute);
         }
 
-        return  parent::generateObjectUrl($name, $object->getForm(), $parameters, $absolute);
-    }    
-    
+        return parent::generateObjectUrl($name, $object->getForm(), $parameters, $absolute);
+    }
+
     /**
-     * Add specific validation when default for type = date is entered 
+     * Add specific validation when default for type = date is entered
      */
     public function validate(ErrorElement $errorElement, $field)
     {
-        if($field->getType() == 'date'){
+        if ($field->getType() == 'date') {
             $formatter = new \IntlDateFormatter(null, null, null);
             $formatter->setPattern('d-M-y');
 
-            if(!$formatter->parse($field->getDefault())){
+            if (!$formatter->parse($field->getDefault())) {
                 $errorElement->with('default')->addViolation('Dit is geen geldige standaardwaarde voor datum volgens formaat dag-maand-jaar');
             }
         }
 
-    }    
+    }
+}
