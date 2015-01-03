@@ -1,5 +1,4 @@
 services:
-
     netvlies.form.form.admin:
           class: Netvlies\Bundle\NetvliesFormBundle\Admin\FormAdmin
           arguments:
