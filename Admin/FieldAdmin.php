@@ -29,7 +29,7 @@ class FieldAdmin extends Admin
     protected $datagridValues = array(
         '_page' => 1,
         '_sort_by' => 'position',
-        '_sort_order' => 'ASC'
+        '_sort_order' => 'ASC',
     );
 
     public function setFormAdmin($formAdmin)
@@ -50,7 +50,7 @@ class FieldAdmin extends Admin
                     'required' => true,
                     'choices' => Field::getTypes(),
                     'catalogue' => $this->translationDomain,
-                    'attr' => array('class' => 'field_type')
+                    'attr' => array('class' => 'field_type'),
                 )
             );
 
@@ -61,11 +61,11 @@ class FieldAdmin extends Admin
                     'required' => true,
                     'choices' => Field::getSelectTypes(),
                     'catalogue' => $this->translationDomain,
-                    'attr' => array('class' => 'field_select_type')))
+                    'attr' => array('class' => 'field_select_type'), ))
                 ->add('selectMultiple', 'checkbox', array(
                     'label' => 'admin.field.field.name.selectmultiple',
                     'required' => false,
-                    'attr' => array('class' => 'field_select_multiple')
+                    'attr' => array('class' => 'field_select_multiple'),
                 ))
                 ->add('required', null, array('label' => 'admin.field.field.name.required', 'attr' => array('class' => 'field_required')))
                 ->add('default', null, array('label' => 'admin.field.field.name.default', 'attr' => array('class' => 'field_default')))
@@ -153,14 +153,13 @@ class FieldAdmin extends Admin
         $collection->addCollection($formCollection);
     }
 
-
     /**
      *
      * This is to create the correct route when going back to the form edit instead of the field list
      *
      * @param string $name
-     * @param mixed $object
-     * @param array $parameters
+     * @param mixed  $object
+     * @param array  $parameters
      *
      * @return string return a complete url
      */
@@ -186,6 +185,5 @@ class FieldAdmin extends Admin
                 $errorElement->with('default')->addViolation('Dit is geen geldige standaardwaarde voor datum volgens formaat dag-maand-jaar');
             }
         }
-
     }
 }

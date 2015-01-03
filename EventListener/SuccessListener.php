@@ -90,7 +90,7 @@ class SuccessListener extends ContainerAware
      * Sends a mail containing the form values to the contact e-mail address
      * specified.
      *
-     * @param Form $form
+     * @param Form   $form
      * @param Result $result
      */
     public function sendMail(Form $form, Result $result)

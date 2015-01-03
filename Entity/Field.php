@@ -11,7 +11,6 @@
 
 namespace Netvlies\Bundle\NetvliesFormBundle\Entity;
 
-use Netvlies\Bundle\NetvliesFormBundle\Entity\Option;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -217,7 +216,7 @@ class Field
             self::TYPE_EMAIL => 'admin.field.field.type.option.email',
             self::TYPE_DATE => 'admin.field.field.type.option.date',
             self::TYPE_CHECKBOX => 'admin.field.field.type.option.checkbox',
-            self::TYPE_SELECT => 'admin.field.field.type.option.select'
+            self::TYPE_SELECT => 'admin.field.field.type.option.select',
         );
     }
 
@@ -225,7 +224,7 @@ class Field
     {
         return array(
             self::SELECT_TYPE_DROPDOWN => 'admin.field.field.selecttype.option.dropdown',
-            self::SELECT_TYPE_RADIO => 'admin.field.field.selecttype.option.radio'
+            self::SELECT_TYPE_RADIO => 'admin.field.field.selecttype.option.radio',
         );
     }
 

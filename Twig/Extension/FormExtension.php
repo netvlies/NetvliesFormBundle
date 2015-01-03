@@ -53,7 +53,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
 
         if ($form->getSuccess()) {
             return $this->container->get('templating')->render('NetvliesFormBundle:Twig:form_success.html.twig', array(
-                'successMessage' => $form->getSuccessMessage()
+                'successMessage' => $form->getSuccessMessage(),
             ));
         } else {
             $formView = $form->getSf2Form()->createView();
@@ -63,7 +63,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
 
             return $this->container->get('templating')->render($this->container->getParameter('netvlies.form.templates.form'), array(
                 'id' => $form->getId(),
-                'form' => $formView
+                'form' => $formView,
             ));
         }
     }

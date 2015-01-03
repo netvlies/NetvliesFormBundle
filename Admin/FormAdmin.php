@@ -24,7 +24,7 @@ class FormAdmin extends Admin
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_by' => 'label',
-        '_sort_order' => 'ASC'
+        '_sort_order' => 'ASC',
     );
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -37,7 +37,7 @@ class FormAdmin extends Admin
                     'required' => true,
                     'choices' => Form::getSuccessActions(),
                     'catalogue' => $this->translationDomain,
-                    'attr' => array('class' => 'form_success_action')))
+                    'attr' => array('class' => 'form_success_action'), ))
                 ->add('successUrl', null, array('label' => 'admin.form.field.name.successurl', 'required' => true, 'attr' => array('class' => 'form_success_url')))
                 ->add('successMessage', null, array('label' => 'admin.form.field.name.successmessage', 'required' => true, 'attr' => array('class' => 'form_success_message')))
             ->end()

@@ -31,7 +31,6 @@ class FormService extends ContainerAware
     public function get($id)
     {
         if (!isset($this->forms[$id])) {
-
             $contentRepository = $this->container->get('doctrine')->getRepository('NetvliesFormBundle:Form');
             $form = $contentRepository->findOneById($id);
 
@@ -43,20 +42,19 @@ class FormService extends ContainerAware
                 $type = $field->getType();
                 $options = array(
                     'label' => $field->getLabel(),
-                    'constraints' => array()
+                    'constraints' => array(),
                 );
-                
+
                 if ($field->getRequired()) {
                     $options['constraints'][] = new NotBlank();
-                }
-                else{
+                } else {
                     $options['required'] = false;
                 }
-                
+
                 if ($field->getDefault()) {
                     $options['data'] = $field->getDefault();
                 }
-                
+
                 switch ($field->getType()) {
                     case 'select':
                         $type = 'choice';

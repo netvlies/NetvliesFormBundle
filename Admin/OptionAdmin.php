@@ -23,7 +23,7 @@ class OptionAdmin extends Admin
     protected $datagridValues = array(
         '_page'       => 1,
         '_sort_by' => 'label',
-        '_sort_order' => 'ASC'
+        '_sort_order' => 'ASC',
     );
 
     protected function configureFormFields(FormMapper $formMapper)

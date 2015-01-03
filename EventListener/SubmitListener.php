@@ -12,7 +12,6 @@
 namespace Netvlies\Bundle\NetvliesFormBundle\EventListener;
 
 use Netvlies\Bundle\NetvliesFormBundle\Event\FormEvent;
-
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
@@ -30,11 +29,9 @@ class SubmitListener extends ContainerAware
         $request = $event->getRequest();
 
         if ($request->isMethod('post')) {
-
             $formId = $request->request->getInt('form[form_id]', 0, true);
 
             if ($formId > 0) {
-
                 $form = $this->container->get('netvlies.form')->get($formId);
 
                 $sf2Form = $form->getSf2Form();
@@ -42,7 +39,6 @@ class SubmitListener extends ContainerAware
                 $sf2Form->bind($request);
 
                 if ($sf2Form->isValid()) {
-
                     $form->setSuccess(true);
 
                     $event = new FormEvent($form);

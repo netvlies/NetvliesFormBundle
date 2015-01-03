@@ -369,7 +369,7 @@ class Form
     {
         return array(
             self::SUCCESS_ACTION_REDIRECT => 'admin.form.field.successaction.option.redirect',
-            self::SUCCESS_ACTION_MESSAGE => 'admin.form.field.successaction.option.message'
+            self::SUCCESS_ACTION_MESSAGE => 'admin.form.field.successaction.option.message',
         );
     }
 
