@@ -63,7 +63,7 @@ class FormAdmin extends Admin
                 ->add('mailRecipientEmail', null, array('label' => 'admin.form.field.name.mailrecipientemail', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
                 ->add('mailSubject', null, array('label' => 'admin.form.field.name.mailsubject', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
                 ->add('mailBody', null, array('label' => 'admin.form.field.name.mailbody', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
-                ->add('mailSenderName', null, array('label' => 'admin.form.field.name.mailsendername', 'attr' => array('class' => 'form_mail_related'), 'required' => false))
+                ->add('mailSenderName', null, array('label' => 'admin.form.field.name.mailsendername', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
                 ->add('mailSenderEmail', null, array('label' => 'admin.form.field.name.mailsenderemail', 'attr' => array('class' => 'form_mail_related'), 'required' => true))
             ->end()
             ->with('admin.form.section.results')

@@ -52,8 +52,9 @@ class FormAdminController extends CRUDController
     /**
      * Generates a response object for a PHPExcel object.
      *
-     * @param  PHPExcel $excel
+     * @param PHPExcel $excel
      * @param $fileName
+     *
      * @return Response
      */
     protected function createResponse(PHPExcel $excel, $fileName)

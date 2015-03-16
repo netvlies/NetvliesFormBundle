@@ -13,7 +13,7 @@
                 $('.form_success_message').parent().parent().toggle(this.value !== 'redirect');
             }).change();
 
-            $('.form_mail_toggle').change(function() {
+            $('.form_mail_toggle').click(function() {
                 $('.form_mail_related').parent().parent().toggle(this.checked);
             }).change();
         })

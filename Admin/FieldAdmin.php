@@ -17,8 +17,9 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Sonata\AdminBundle\Validator\ErrorElement;
+use Sonata\CoreBundle\Validator\ErrorElement;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Intl\DateFormatter\IntlDateFormatter;
 
 class FieldAdmin extends Admin
 {
@@ -139,7 +140,7 @@ class FieldAdmin extends Admin
     /**
      * A list of all fields for all forms is kind of useless, we want to return to the parent form in which this field is included, so we remove
      * the 'back to list' route and re-add it with parent form entries. Note that id must be filled with the form id instead of the field id.
-     * this is taken care of in the generateObjectUrl override
+     * this is taken care of in the generateObjectUrl override.
      *
      * @param RouteCollection $collection
      */
@@ -154,8 +155,7 @@ class FieldAdmin extends Admin
     }
 
     /**
-     *
-     * This is to create the correct route when going back to the form edit instead of the field list
+     * This is to create the correct route when going back to the form edit instead of the field list.
      *
      * @param string $name
      * @param mixed  $object
@@ -173,12 +173,12 @@ class FieldAdmin extends Admin
     }
 
     /**
-     * Add specific validation when default for type = date is entered
+     * Add specific validation when default for type = date is entered.
      */
     public function validate(ErrorElement $errorElement, $field)
     {
         if ($field->getType() == 'date') {
-            $formatter = new \IntlDateFormatter(null, null, null);
+            $formatter = new IntlDateFormatter(null, null, null);
             $formatter->setPattern('d-M-y');
 
             if (!$formatter->parse($field->getDefault())) {

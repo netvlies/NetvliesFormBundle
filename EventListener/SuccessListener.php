@@ -53,6 +53,7 @@ class SuccessListener extends ContainerAware
      * Creates the result object from the user's input.
      *
      * @param $form
+     *
      * @return Result
      */
     public function createResult(Form $form)

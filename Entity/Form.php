@@ -88,12 +88,14 @@ class Form
     protected $mailBody;
 
     /**
+     * @Assert\NotBlank(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailSenderName;
 
     /**
      * @Assert\Email(groups={"email"})
+     * @Assert\NotBlank(groups={"email"})
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $mailSenderEmail;

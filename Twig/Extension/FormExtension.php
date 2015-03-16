@@ -45,6 +45,7 @@ class FormExtension extends \Twig_Extension implements ContainerAwareInterface
      * by the Twig renderer.
      *
      * @param $id
+     *
      * @return mixed
      */
     public function showForm($id)
