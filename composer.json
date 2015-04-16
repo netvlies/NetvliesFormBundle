@@ -39,7 +39,6 @@
             "Netvlies\\Bundle\\NetvliesFormBundle\\": ""
         }
     },
-    "target-dir": "Netvlies/Bundle/NetvliesFormBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
