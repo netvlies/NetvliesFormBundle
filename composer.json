@@ -35,7 +35,9 @@
         "sonata-project/admin-bundle": "This bundle provides classes to manage forms through Sonata Admin"
     },
     "autoload":     {
-        "psr-0": { "Netvlies\\Bundle\\NetvliesFormBundle": "" }
+        "psr-4": {
+            "Netvlies\\Bundle\\NetvliesFormBundle\\": ""
+        }
     },
     "target-dir": "Netvlies/Bundle/NetvliesFormBundle",
     "extra": {
