@@ -1,0 +1,32 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block sonata_admin_content %}
+
+    <div class="box box-primary">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-bordered table-striped sonata-ba-list">
+                {% for result in form.results %}
+                    {% if loop.first %}
+                        <thead>
+                            <tr class="sonata-ba-list-field-header">
+                                {% for entry in result.entries %}
+                                    <th class="sonata-ba-list-field-header-text">
+                                        {{ entry.field.label }}
+                                    </th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                    {% endif %}
+                    <tbody>
+                        {% for entry in result.entries %}
+                            <td class="sonata-ba-list-field sonata-ba-list-field-text">
+                                {{ entry.value }}
+                            </td>
+                        {% endfor %}
+                    </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

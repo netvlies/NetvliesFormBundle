@@ -15,7 +15,7 @@ services:
           - Netvlies\Bundle\NetvliesFormBundle\Entity\Field
           - null
         calls:
-          - [ setFormAdmin, [@netvlies.form.form.admin] ]
+          - [ setFormAdmin, ['@netvlies.form.form.admin'] ]
         tags:
           - { name: sonata.admin, manager_type: orm, group: admin.label, label: admin.field.label, show_in_dashboard: false, label_catalogue: NetvliesFormBundle }
 
@@ -31,25 +31,25 @@ services:
     netvlies.form:
         class: Netvlies\Bundle\NetvliesFormBundle\Service\FormService
         calls:
-          - [ setContainer, [@service_container] ]
+          - [ setContainer, ['@service_container'] ]
 
     netvlies.form.twig.extension:
         class: Netvlies\Bundle\NetvliesFormBundle\Twig\Extension\FormExtension
         calls:
-          - [ setContainer, [@service_container] ]
+          - [ setContainer, ['@service_container'] ]
         tags:
           - { name: twig.extension }
 
     netvlies.listener.form.submit:
         class: Netvlies\Bundle\NetvliesFormBundle\EventListener\SubmitListener
         calls:
-          - [ setContainer, [@service_container] ]
+          - [ setContainer, ['@service_container'] ]
         tags:
           - { name: kernel.event_listener, event: kernel.request }
 
     netvlies.listener.form.success:
         class: Netvlies\Bundle\NetvliesFormBundle\EventListener\SuccessListener
         calls:
-          - [ setContainer, [@service_container] ]
+          - [ setContainer, ['@service_container'] ]
         tags:
           - { name: kernel.event_listener, event: form.success }

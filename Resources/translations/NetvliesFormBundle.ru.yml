@@ -10,6 +10,7 @@ admin:
         list:
             label: Формы
             results: Результаты
+            viewResults: Просмотр результатов
         field:
             name:
                 label: Наименование
