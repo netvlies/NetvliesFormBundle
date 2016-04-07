@@ -10,6 +10,7 @@ admin:
         list:
             label: Label
             results: Resultaten
+            viewResults: Bekijk de resultaten
         field:
             name:
                 label: Naam

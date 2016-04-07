@@ -1,0 +1,69 @@
+admin:
+    label: Формы
+    form:
+        label: Формы
+        section:
+            general: Общие
+            fields: Управление полями
+            mail: Настройки email
+            results: Результаты
+        list:
+            label: Формы
+            results: Результаты
+            viewResults: Просмотр результатов
+        field:
+            name:
+                label: Наименование
+                successaction: Действие успешной отправки
+                successurl: URL
+                successmessage: Сообщение
+                fields: Поля
+                captcha: Показывать CAPTCHA
+                sendmail: Отправить письмо
+                mailrecipientname: Имя получателя
+                mailrecipientemail: Имя отправителя
+                mailsubject: Тема письма
+                mailbody: Вступление в теле письма
+                mailsendername: Имя отправителя
+                mailsenderemail: Email отправителя
+                results: Сохранять данные
+            successaction:
+                option:
+                    redirect: Редирект на URL
+                    message: Показать сообщение
+    field:
+        label: Поля
+        section:
+            general: Общие
+        field:
+            name:
+                label: Наименование
+                type: Тип
+                selecttype: Выберите тип
+                selectmultiple: Множественный выбор
+                required: Обязательное поле
+                default: Значение по умолчанию
+                options: Список пунктов
+                position: Позиция
+                form: Форма
+            type:
+                option:
+                    text: Текст (в одну строку)
+                    textarea: Textarea (в несколько строк)
+                    email: Email
+                    date: Дата
+                    checkbox: Галочка да/нет
+                    select: Select (выбор из списка)
+            selecttype:
+                option:
+                    dropdown: Выпадающий список
+                    radio: Список radio-кнопок
+    option:
+        label: Список пунктов
+        field:
+            name:
+                position: Позиция
+
+# Sonata Admin
+Form List: Формы
+Field List: Поля

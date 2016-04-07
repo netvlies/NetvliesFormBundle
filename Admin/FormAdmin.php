@@ -77,12 +77,14 @@ class FormAdmin extends Admin
         $listMapper
             ->addIdentifier('label', null, array('label' => 'admin.form.list.label'))
             ->add('results', 'string', array('label' => 'admin.form.list.results', 'template' => 'NetvliesFormBundle:FormAdmin:results.html.twig'))
+            ->add('viewResults', 'string', array('label' => 'admin.form.list.viewResults', 'template' => 'NetvliesFormBundle:FormAdmin:view_results.html.twig'))
         ;
     }
 
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('results', $this->getRouterIdParameter().'/results');
+        $collection->add('viewResults', $this->getRouterIdParameter().'/view-results');
     }
 
     public function getFormTheme()

@@ -50,6 +50,19 @@ class FormAdminController extends CRUDController
     }
 
     /**
+     * @param Form $form
+     * @return Response
+     */
+    public function viewResultsAction(Form $form)
+    {
+
+        return $this->render('NetvliesFormBundle:FormAdmin:view_results_table.html.twig', array(
+            'form' => $form,
+            'action' => 'list'
+        ));
+    }
+
+    /**
      * Generates a response object for a PHPExcel object.
      *
      * @param PHPExcel $excel

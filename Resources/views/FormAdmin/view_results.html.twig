@@ -1,0 +1,13 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+
+    {% if object.storeResults %}
+
+        {% if object.results|length > 0 %}<a href="{{ admin.generateUrl('viewResults', { id: object.id }) }}">{% endif %}
+            {% trans from "SonataAdminBundle" %}link_list{% endtrans %}
+        {% if object.results|length > 0 %}</a>{% endif %}
+
+    {% endif %}
+
+{% endblock field %}

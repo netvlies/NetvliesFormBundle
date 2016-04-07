@@ -4,7 +4,6 @@
     "description": "NetvliesFormBundle",
     "keywords": ["form", "bundle", "netvlies", "symfony"],
     "homepage": "https://github.com/netvlies/NetvliesFormBundle",
-    "type": "library",
     "license": "MIT",
     "authors": [
         {
