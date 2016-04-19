@@ -81,7 +81,7 @@ class SuccessListener extends ContainerAware
      */
     public function storeResult(Form $form, Result $result)
     {
-        $entityManager = $this->container->get('doctrine')->getEntityManager();
+        $entityManager = $this->container->get('doctrine')->getManager();
         $form->addResult($result);
         $entityManager->persist($form);
         $entityManager->flush();
